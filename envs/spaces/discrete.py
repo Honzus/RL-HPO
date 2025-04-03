@@ -5,7 +5,7 @@ Created on Sat Feb  2 02:11:58 2019
 
 @author: hsjomaa
 """
-import gym
+import gymnasium as gym
 import numpy as np
 class Discrete(gym.Space):
     """

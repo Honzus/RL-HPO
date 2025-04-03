@@ -1,4 +1,5 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from envs.spaces import Continuous,Box,Discrete
 
 def observation_input(ob_space, batch_size=None, name='Ob'):

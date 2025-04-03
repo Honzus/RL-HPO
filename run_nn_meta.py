@@ -11,7 +11,8 @@ from common.misc_util import set_global_seeds
 import argparse
 import logger
 from common.cmd_util import  make_meta_env
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from common.utils import model_dir
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)

@@ -8,7 +8,7 @@ Created on Wed Feb 13 07:46:27 2019
 
 import numpy as np
 import os
-import gym
+import gymnasium as gym
 import envs.spaces as spaces
 import pandas as pd
 class ALEInterface(object):
@@ -102,7 +102,7 @@ class nnMetaEnv(gym.Env):
 
         (hyper_parameter_size,max_sequence_length) = self.ale.getScreenDims()
         if self._obs_type == 'multi_variate':
-            self.observation_space = spaces.Box(low=0, high=255, shape=(max_sequence_length, hyper_parameter_size), dtype=np.float)
+            self.observation_space = spaces.Box(low=0, high=255, shape=(max_sequence_length, hyper_parameter_size), dtype=np.float32)
 
     def seed(self, seed=None):
         np.random.seed(seed)

@@ -8,8 +8,8 @@ Created on Tue Jan 29 13:44:21 2019
 
 __all__ = ['Monitor', 'get_monitor_files', 'load_results']
 
-import gym
-from gym.core import Wrapper
+import gymnasium as gym
+from gymnasium.core import Wrapper
 import time
 from glob import glob
 import csv

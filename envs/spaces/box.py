@@ -7,7 +7,7 @@ Created on Tue Mar 12 22:56:41 2019
 """
 
 import numpy as np
-import gym
+import gymnasium as gym
 
 class Box(gym.Space):
     """

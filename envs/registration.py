@@ -1,6 +1,7 @@
 import pkg_resources
 import re
-from gym import error, logger
+from gymnasium import error, logger
+import logging
 
 # This format is true today, but it's *not* an official spec.
 # [username/](env-name)-v(version)    env-name is group 1, version is group 2
@@ -114,13 +115,13 @@ class EnvRegistry(object):
         self.env_specs = {}
 
     def make(self, id):
-        logger.info('Making new env: %s', id)
+        logging.info('Making new env: %s', id)
         spec = self.spec(id)
         env = spec.make()
         if hasattr(env, "_reset") and hasattr(env, "_step"):
             patch_deprecated_methods(env)
         if (env.spec.timestep_limit is not None) and not spec.tags.get('vnc'):
-            from gym.wrappers.time_limit import TimeLimit
+            from gymnasium.wrappers.time_limit import TimeLimit
             env = TimeLimit(env,
                             max_episode_steps=env.spec.max_episode_steps,
                             max_episode_seconds=env.spec.max_episode_seconds)

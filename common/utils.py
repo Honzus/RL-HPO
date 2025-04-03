@@ -25,7 +25,7 @@ def model_dir(config):
       if not k.startswith('_') and k not in ['display']:
         v=_attrs[k];model_dir += "%s-%s/" % (k, ",".join([str(i) for i in v])
             if type(v) == list else v)
-    return '/home/hsjomaa/reinforcement-learning/adaptive-results/logs/'+model_dir
+    return '/Users/janrichtr/Desktop/RL-HPO/'+model_dir
     
 def as_scalar(x):
     if isinstance(x, np.ndarray):

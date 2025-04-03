@@ -359,7 +359,7 @@ def configure(dir=None, format_strs=None):
         dir = os.getenv('OPENAI_LOGDIR')
     if dir is None:
         dir = osp.join(tempfile.gettempdir(),
-            datetime.datetime.now().strftime("/home/hsjomaa/reinforcement-learning/adaptive-results/logs/openai-%Y-%m-%d-%H-%M-%S-%f"))
+            datetime.datetime.now().strftime("openai-%Y-%m-%d-%H-%M-%S-%f"))
     assert isinstance(dir, str)
     os.makedirs(dir, exist_ok=True)
     log_suffix = ''

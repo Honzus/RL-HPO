@@ -1,4 +1,4 @@
-import gym
+import gymnasium as gym
 import numpy as np
 import os
 import pickle
@@ -81,12 +81,9 @@ class EzPickle(object):
 
 
 def set_global_seeds(i):
-    try:
-        import tensorflow as tf
-    except ImportError:
-        pass
-    else:
-        tf.set_random_seed(i)
+    import tensorflow.compat.v1 as tf
+    tf.disable_v2_behavior()
+    tf.set_random_seed(i)
     np.random.seed(i)
     random.seed(i)
 

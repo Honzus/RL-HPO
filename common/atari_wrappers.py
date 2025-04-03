@@ -8,7 +8,7 @@ Created on Tue Mar 12 21:38:07 2019
 
 import numpy as np
 from collections import deque
-import gym
+import gymnasium as gym
 from gym import spaces
 import cv2
 cv2.ocl.setUseOpenCL(False)

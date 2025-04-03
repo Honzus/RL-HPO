@@ -5,7 +5,7 @@ Created on Tue Jan 29 12:05:42 2019
 
 @author: hsjomaa
 """
-import gym
+import gymnasium as gym
 import numpy as np
 class Continuous(gym.Space):
     """
