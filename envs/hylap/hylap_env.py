@@ -85,7 +85,7 @@ class nnMetaEnv(gym.Env):
     def __init__(self, configs):
 
         assert configs['obs_type'] in ('multi_variate')
-
+        print('path')
         self.game_path = configs['path']
         if not os.path.exists(self.game_path):
             raise IOError('You asked for nn Meta Dataset but path %s does not exist'%(self.game_path))
@@ -149,5 +149,13 @@ class nnMetaEnv(gym.Env):
         ACTION_MEANING = {}
         for i in range(Lambda.shape[0]):
             ACTION_MEANING[i] = Lambda[i]        
+        return [ACTION_MEANING[i] for i in self._action_set]
+
+    def get_action_meanings2(self):
+        file                = np.random.choice([_ for _ in os.listdir(os.path.join(self.game_path, 'train'))])
+        Lambda              = np.asarray(pd.read_csv(os.path.join(os.path.join(self.game_path, 'train'),file),delimiter=' ',header=None))[:,1:-self.ale.N_f]
+        ACTION_MEANING = {}
+        for i in range(Lambda.shape[0]):
+            ACTION_MEANING[i] = Lambda[i]
         return [ACTION_MEANING[i] for i in self._action_set]
 

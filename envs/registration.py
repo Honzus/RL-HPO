@@ -11,9 +11,11 @@ import logging
 env_id_re = re.compile(r'^(?:[\w:-]+\/)?([\w:.-]+)-v(\d+)$')
 
 def load(name):
-    entry_point = pkg_resources.EntryPoint.parse('x={}'.format(name))
-    result = entry_point.load(False)
-    return result
+    import importlib
+    module_path, attr_name = name.split(':')
+    module = importlib.import_module(module_path)
+    fn = getattr(module, attr_name)
+    return fn
 
 class EnvSpec(object):
     """A specification for a particular instance of the environment. Used
