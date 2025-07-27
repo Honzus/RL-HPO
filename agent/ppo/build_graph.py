@@ -1,15 +1,42 @@
 import tensorflow.compat.v1 as tf
-
 tf.disable_v2_behavior()
 import numpy as np
 import common.tf_util as U
 from agent.deepq.simple import ActWrapper
 import os
+import wandb
 import tempfile
 import logger
 from agent.deepq.utils import ObservationInput
 from common.tf_util import load_state, save_state
-import  copy
+import copy
+
+def preprocess_observation(obs):
+    obs = np.array(obs, dtype=np.float32)
+    orig_shape = obs.shape
+
+    # Flatten to 2D if needed (for easy processing)
+    obs_flat = obs.reshape(-1, obs.shape[-1])
+
+    main_obs = obs_flat[:, :4]
+    metafeatures = obs_flat[:, 4:]
+
+    metafeatures[metafeatures == -999999] = -1.0
+    metafeatures[metafeatures == 999999] = 1.0
+
+    metafeatures[metafeatures == 1000] = 2 * (1000 + 999999) / (999999 + 999999) - 1
+
+    metafeatures[:, 4] = 2 * metafeatures[:, 4] / 500 - 1
+    metafeatures[:, 0] = 2 * (metafeatures[:, 0]-1)/(99-1) - 1
+    metafeatures[:, 2] = 2 * (metafeatures[:, 2]-3) /(99-3) - 1
+
+
+    # Concatenate back
+    processed = np.concatenate([main_obs, metafeatures], axis=1)
+
+    # Restore original shape
+    processed = processed.reshape(orig_shape)
+    return processed
 
 def scope_vars(scope, trainable_only=False):
     """Get variables inside a scope
@@ -113,7 +140,7 @@ def lstm_to_mlp(cell, hiddens, max_length, aktiv=tf.nn.tanh, dueling=False):
 
             # Output layer (logits)
             logits = tf.layers.dense(hidden, num_actions)
-            logits = tf.clip_by_value(logits, -50.0, 50.0)  # Clip to prevent NaNs
+            logits = tf.clip_by_value(logits, -1000.0, 1000.0)  # Clip to prevent NaNs
 
             return logits
 
@@ -167,6 +194,9 @@ def lstm_to_mlp(cell, hiddens, max_length, aktiv=tf.nn.tanh, dueling=False):
             # Combine LSTM output with metafeatures
             combined = tf.concat([lstm_output, metafeatures], axis=1)
 
+            print("LSTM output stats:", tf.reduce_mean(lstm_output), tf.math.reduce_std(lstm_output))
+            print("Combined features stats:", tf.reduce_mean(combined), tf.math.reduce_std(combined))
+
             # Process through hidden layers
             hidden = combined
             for h in hiddens:
@@ -174,13 +204,13 @@ def lstm_to_mlp(cell, hiddens, max_length, aktiv=tf.nn.tanh, dueling=False):
 
             # Output layer (value)
             value = tf.layers.dense(hidden, 1)
-            value = tf.clip_by_value(value, -100.0, 100.0)  # Clip to prevent NaNs
+            value = tf.clip_by_value(value, -1000.0, 1000.0)  # Clip to prevent NaNs
             return value
 
     return actor_network, value_network
 
 
-def build_policy(make_obs_ph, actor_network, value_network, num_actions, scope="ppo", reuse=None):
+def build_policy(make_obs_ph, actor_network, value_network, num_actions, scope="ppo", entropy_coef=0.1, reuse=None):
     """
     Build PPO policy and value networks
 
@@ -220,8 +250,7 @@ def build_policy(make_obs_ph, actor_network, value_network, num_actions, scope="
         lr_ph = tf.placeholder(tf.float32, [], name="learning_rate")
         clip_param_ph = tf.placeholder(tf.float32, [], name="clip_param")
 
-        epsilon_ph = tf.placeholder_with_default(0.2, shape=(), name="epsilon")
-        temperature_ph = tf.placeholder_with_default(1.5, shape=(), name="temperature")  # Softmax temperature
+        temperature_ph = tf.placeholder_with_default(1.0, shape=(), name="temperature")  # Softmax temperature
 
         # Policy network (Actor)
         with tf.variable_scope("policy"):
@@ -232,19 +261,9 @@ def build_policy(make_obs_ph, actor_network, value_network, num_actions, scope="
             stable_logits = policy_logits - tf.reduce_max(scaled_logits, axis=1, keepdims=True)
             policy_probs = tf.nn.softmax(stable_logits)
 
-            # Epsilon-greedy exploration
-            random_val = tf.random_uniform(shape=[tf.shape(policy_probs)[0]])
-            random_actions = tf.random_uniform(
-                shape=[tf.shape(policy_probs)[0]], minval=0, maxval=num_actions, dtype=tf.int32
-            )
-            # Sample from policy distribution instead of argmax for exploitation
             policy_dist = tf.distributions.Categorical(probs=policy_probs)
-            policy_actions = policy_dist.sample()
-            explore_mask = random_val < epsilon_ph
-            action = tf.where(explore_mask, random_actions, policy_actions)
-
-            # Track source for debugging (1=random, 2=policy)
-            action_source = tf.cast(explore_mask, tf.int32) + 1
+            action = policy_dist.sample()  # Rely on policy's stochasticity
+            action_source = tf.ones_like(action, dtype=tf.int32) * 2  # Always policy
 
             # Stable categorical distribution for log probability
             stable_probs = policy_probs + 1e-10
@@ -270,23 +289,31 @@ def build_policy(make_obs_ph, actor_network, value_network, num_actions, scope="
         value_vars = scope_vars(scope + "/value", trainable_only=True)
         old_policy_vars = scope_vars(scope + "/old_policy", trainable_only=True)
 
+        print("Value network variables:")
+        for var in value_vars:
+            print(var.name)
+
         # Loss calculations
         # Policy loss with clipping
-        ratio = tf.exp(old_neglogp_ph - neglogp_actions)  # ratio between old and new policy, should be one at the first iteration
+        ratio = tf.exp(
+            old_neglogp_ph - neglogp_actions)  # ratio between old and new policy, should be one at the first iteration
         clipped_ratio = tf.clip_by_value(ratio, 1.0 - clip_param_ph, 1.0 + clip_param_ph)
         policy_loss = -tf.reduce_mean(tf.minimum(ratio * advantages_ph, clipped_ratio * advantages_ph))
 
         # Value loss
-        value_loss = tf.reduce_mean(tf.square(value_pred - returns_ph))
+        value_clipped = old_vpred_ph + tf.clip_by_value(value_pred - old_vpred_ph, -clip_param_ph, clip_param_ph)
+        value_loss1 = tf.square(value_pred - returns_ph)
+        value_loss2 = tf.square(value_clipped - returns_ph)
+        value_loss = 0.5 * tf.reduce_mean(tf.maximum(value_loss1, value_loss2))
 
         # Entropy loss to encourage exploration
         entropy = tf.reduce_mean(policy_dist.entropy())
 
         # Total loss
-        loss = policy_loss + 0.5 * value_loss - 0.01 * entropy
+        loss = policy_loss + 0.5 * value_loss - entropy_coef * entropy
 
         # KL divergence for adaptive learning rate
-        approxkl = 0.5 * tf.reduce_mean(tf.square(neglogp_actions - old_neglogp_ph))
+        approxkl = tf.reduce_mean(old_neglogp_ph - neglogp_actions)
 
         # Create optimizer
         optimizer = tf.train.AdamOptimizer(learning_rate=lr_ph)
@@ -294,8 +321,14 @@ def build_policy(make_obs_ph, actor_network, value_network, num_actions, scope="
         # Gradient clipping
         grads_and_vars = optimizer.compute_gradients(loss, var_list=policy_vars + value_vars)
         grads, vars = zip(*grads_and_vars)
-        grads_clipped, _ = tf.clip_by_global_norm(grads, 0.5)
+        print("Variables in optimizer:")
+        for grad, var in grads_and_vars:
+            print(var.name)
+        grads_clipped, _ = tf.clip_by_global_norm(grads, 1)
         optimize_expr = optimizer.apply_gradients(list(zip(grads_clipped, vars)))
+        # For debugging: get the norm of each gradient
+        grad_norms = [tf.norm(g) if g is not None else tf.constant(0.0) for g in grads_clipped]
+
 
         # Update old policy
         update_old_policy_expr = []
@@ -330,10 +363,19 @@ def build_policy(make_obs_ph, actor_network, value_network, num_actions, scope="
                 old_vpred_ph: values
             }
 
-            policy_loss_val, value_loss_val, entropy_val, approxkl_val, _ = sess.run(
-                [policy_loss, value_loss, entropy, approxkl, optimize_expr],
+            policy_loss_val, value_loss_val, entropy_val, approxkl_val, grad_norms_val, _ = sess.run(
+                [policy_loss, value_loss, entropy, approxkl, grad_norms, optimize_expr],
                 feed_dict=td_map
             )
+
+            print("Value loss:", value_loss_val)
+            for grad, var in zip(grad_norms_val, vars):
+                if grad is not None:
+                    print(var.name, "grad norm:", np.linalg.norm(grad))
+                else:
+                    print(var.name, "grad is None")
+
+            policy_probs_val = tf.get_default_session().run(policy_probs, feed_dict=td_map)
 
             return policy_loss_val, value_loss_val, entropy_val, approxkl_val
 
@@ -406,7 +448,7 @@ class PPOBuffer:
         deltas = rewards[:-1] + self.gamma * values[1:] * (1 - dones[:-1]) - values[:-1]
 
         # Clip extreme values
-        deltas = np.clip(deltas, -10.0, 10.0)
+        deltas = np.clip(deltas, -100.0, 100.0)
 
         # Calculate advantages with safety
         gae = 0
@@ -415,7 +457,7 @@ class PPOBuffer:
         for t in reversed(range(path_len)):
             gae = deltas[t] + self.gamma * self.lam * (1 - dones[t]) * gae
             # Prevent extreme values
-            gae = np.clip(gae, -10.0, 10.0)
+            gae = np.clip(gae, -100.0, 100.0)
             advantages[t] = gae
 
         # Store advantages and compute returns
@@ -484,6 +526,7 @@ class PPOBuffer:
         """Return current buffer size"""
         return self.ptr if not self._full else self.max_size
 
+
 def learn(env,
           actor_network,
           value_network,
@@ -502,7 +545,8 @@ def learn(env,
           clip_ratio=0.2,
           train_epochs=10,
           N_t=4,
-          callback=None):
+          callback=None,
+          entropy_coef=0.1):
     """
     Train a PPO agent on the HPO environment
 
@@ -570,8 +614,9 @@ def learn(env,
         actor_network=actor_network,
         value_network=value_network,
         num_actions=num_actions,
-        #optimizer=tf.train.AdamOptimizer(learning_rate=lr),
-        #session=sess
+        entropy_coef=entropy_coef
+        # optimizer=tf.train.AdamOptimizer(learning_rate=lr),
+        # session=sess
     )
 
     # Store act parameters for saving/loading
@@ -613,8 +658,66 @@ def learn(env,
     obs = np.zeros(shape=env.observation_space.shape)
     obs[0, :] = np.append(np.repeat(np.NaN, repeats=N_t), env.env.ale.metadata[dataset_idx]['features']).reshape(1, -1)
     obs = np.nan_to_num(obs, copy=True, nan=0.0)  # Replace NaN with 0
+    obs = preprocess_observation(obs)  # ADD THIS LINE
     reset = True
     prev_r = 0
+
+    wandb.init(project="RL-HPO-Visualization",
+               name=f"PPO-{env.env_id if hasattr(env, 'env_id') else 'unknown'}",
+               config={
+                   "algorithm": "PPO",
+                   "env_id": env.env_id if hasattr(env, 'env_id') else 'unknown',
+                   "learning_rate": lr,
+                   "buffer_size": buffer_size,
+                   "batch_size": batch_size,
+                   "gamma": gamma,
+                   "lam": lam,
+                   "clip_ratio": clip_ratio,
+                   "train_epochs": train_epochs
+               })
+
+    wandb.log({"policy_loss_mean_100": 0,
+               "value_loss_mean_100": 0,
+               "entropy_mean_100": 0,
+               "approx_kl_mean_100": 0,
+               "episode_reward": 0,
+               "episode_length": 1,
+               "mean_100ep_reward": 0,
+               "episode_length_mean_100": 0,
+               "timesteps": 0
+               })
+
+    def wandb_callback(locals, globals):
+        # Log metrics at the end of each episode
+        if len(locals['episode_rewards']) > 0:  # Log every 100 timesteps
+
+            last_100_rewards = locals['episode_rewards'][-100:]
+            last_100_lengths = locals['episode_lengths'][-100:]
+            last_100_policy_losses = locals.get('policy_losses', [0])[-100:]
+            last_100_value_losses = locals.get('value_losses', [0])[-100:]
+            last_100_entropies = locals.get('entropies', [0])[-100:]
+            last_100_kls = locals.get('kls', [0])[-100:]
+
+            wandb.log({
+                "episode_reward": locals['episode_rewards'][-1],
+                "episode_length": locals['episode_lengths'][-1],
+                "mean_100ep_reward": np.mean(last_100_rewards),
+                "episode_length_mean_100": np.mean(last_100_lengths),
+                "policy_loss_mean_100": np.mean(last_100_policy_losses),
+                "value_loss_mean_100": np.mean(last_100_value_losses),
+                "entropy_mean_100": np.mean(last_100_entropies),
+                "approx_kl_mean_100": np.mean(last_100_kls),
+                "timesteps": locals['t']
+            })
+        return False
+
+    # Combine the original callback with wandb callback
+    def combined_callback(locals, globals):
+        if callback is not None:
+            callback_result = callback(locals, globals)
+            if callback_result:
+                return True
+        return wandb_callback(locals, globals)
 
     # Save/load model handling
     with tempfile.TemporaryDirectory() as td:
@@ -629,9 +732,6 @@ def learn(env,
 
         # Main training loop
         for t in range(max_timesteps):
-            if callback is not None:
-                if callback(locals(), globals()):
-                    break
 
             # Get current sequence position for observation - match DeepQ's pattern
             seq = env.env._get_ep_len()
@@ -650,6 +750,10 @@ def learn(env,
             new_obs[env.env._get_ep_len(), :] = np.append(new_state, np.append(rew, env.env.ale.metadata[dataset_idx][
                 'features'])).reshape(1, -1)
             new_obs = np.nan_to_num(new_obs, copy=True, nan=0.0)  # Replace NaN with 0
+            new_obs = preprocess_observation(new_obs)  # preprocess the observation
+
+            if np.any(np.abs(new_obs) > 1e5):
+                print("Warning: Extreme value in observation!", new_obs)
 
             # Store in PPO buffer
             buffer.store(obs, seq, action, rew, value, neglogp, float(done))
@@ -692,12 +796,17 @@ def learn(env,
                 # Get data from buffer
                 obs_buffer, seq_buffer, act_buffer, val_buffer, ret_buffer, old_neglogp_buffer, adv_buffer = buffer.get()
 
+                obs_buffer = preprocess_observation(obs_buffer)
+
                 # Tracking stats
                 avg_policy_loss = 0
                 avg_value_loss = 0
                 sum_entropy = 0.0
                 n_updates = 0
                 avg_approxkl = 0
+
+                policy_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope="ppo/value")
+                weights_before = tf.get_default_session().run(policy_vars)
 
                 # Run PPO updates for multiple epochs
                 for _ in range(train_epochs):
@@ -712,6 +821,12 @@ def learn(env,
                         batch_indices = indices[start:end]
                         if len(batch_indices) < batch_size:  # Skip small last batch
                             continue
+
+                        print("Value network input batch stats:",
+                              "mean", np.mean(obs_buffer[batch_indices]),
+                              "std", np.std(obs_buffer[batch_indices]),
+                              "min", np.min(obs_buffer[batch_indices]),
+                              "max", np.max(obs_buffer[batch_indices]))
 
                         # Update policy and value networks
                         policy_loss, value_loss, entropy, approxkl = train(
@@ -736,12 +851,20 @@ def learn(env,
                 # Update old policy after all updates
                 update_old_policy()
 
+                weights_after = tf.get_default_session().run(policy_vars)
+                for w_b, w_a in zip(weights_before, weights_after):
+                    print("Policy weight diff:", np.sum(np.abs(w_b - w_a)))
+
                 # Store stats for logging
                 policy_losses.append(avg_policy_loss)
                 value_losses.append(avg_value_loss)
                 mean_entropy = sum_entropy / max(1, n_updates)
                 entropies.append(mean_entropy)
                 kls.append(avg_approxkl)
+
+                if combined_callback is not None:
+                    if combined_callback(locals(), globals()):
+                        break
 
                 # Clear buffer after updates
                 buffer.clear()

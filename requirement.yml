@@ -1,0 +1,9 @@
+name: RL-HPO2
+channels:
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - python=3.9
+  - keras==2.11
+  - tensorflow==2.11
+prefix: /opt/anaconda3/envs/RL-HPO2

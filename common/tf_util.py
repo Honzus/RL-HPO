@@ -8,7 +8,7 @@ Created on Fri Dec 14 13:51:20 2018
 
 import numpy as np
 import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()  # pylint: ignore-module
+tf.disable_v2_behavior()
 import copy
 import os
 import functools
@@ -176,7 +176,7 @@ def function(inputs, outputs, session,updates=None, givens=None):
 class _Function(object):
     def __init__(self, inputs, outputs, updates, givens,session):
         for inpt in inputs:
-            if not hasattr(inpt, 'make_feed_dict') and not (type(inpt) is tf.Tensor and len(inpt.op.inputs) == 0):
+            if not hasattr(inpt, 'make_feed_dict') and not (isinstance(inpt, tf.Tensor)):
                 assert False, "inputs should all be placeholders, constants, or have a make_feed_dict method"
         self.inputs = inputs
         updates = updates or []
@@ -302,13 +302,15 @@ def get_available_gpus():
 # ================================================================
 
 def load_state(fname):
-    saver = tf.train.Saver()
-    saver.restore(tf.get_default_session(), fname)
+    with tf.device('/CPU:0'):
+        saver = tf.train.Saver()
+        saver.restore(tf.get_default_session(), fname)
 
 def save_state(fname):
-    os.makedirs(os.path.dirname(fname), exist_ok=True)
-    saver = tf.train.Saver()
-    saver.save(tf.get_default_session(), fname)
+    with tf.device('/CPU:0'):
+        os.makedirs(os.path.dirname(fname), exist_ok=True)
+        saver = tf.train.Saver()
+        saver.save(tf.get_default_session(), fname)
 
 
 def linear(input_, output_size, stddev=0.02, bias_start=0.0, activation_fn=None, name='linear'):

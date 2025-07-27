@@ -1,5 +1,6 @@
 import os
 import tempfile
+import wandb
 
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
@@ -233,6 +234,63 @@ def learn(env,
     obs[0,:]   = np.append(np.repeat(np.NaN,repeats=N_t),env.env.ale.metadata[dataset_idx]['features']).reshape(1,-1)
     reset   = True
     prev_r  = 0
+
+    wandb.init(project="RL-HPO-Visualization",
+               name=f"DQN-{env.env_id if hasattr(env, 'env_id') else 'unknown2'}",
+               config={
+                   "algorithm": "DQN",
+                   "env_id": env.env_id if hasattr(env, 'env_id') else 'unknown2',
+                   "learning_rate": lr,
+                   "buffer_size": buffer_size,
+                   "batch_size": batch_size,
+                   "gamma": gamma,
+                   "exploration_fraction": exploration_fraction,
+                   "exploration_final_eps": exploration_final_eps,
+                   "target_network_update_freq": target_network_update_freq,
+                   "prioritized_replay": prioritized_replay
+               })
+
+    # Create wandb callback
+    def wandb_callback(locals, globals):
+        # Log metrics at regular intervals
+        if len(locals['episode_rewards']) > 0 and locals['t'] % 100 == 0:  # Log every 100 timesteps
+            # Get the latest TD error, ensuring it's a scalar
+            latest_td_error = 0.0
+            if locals.get('errors'):
+                if isinstance(locals['errors'][-1], (list, np.ndarray)):
+                    latest_td_error = np.mean(locals['errors'][-1])  # Take mean if it's a list/array
+                else:
+                    latest_td_error = locals['errors'][-1]  # Use directly if it's a scalar
+
+            # Get the latest Q-value, ensuring it's a scalar
+            latest_q_value = 0.0
+            if locals.get('q_t_train'):
+                if isinstance(locals['q_t_train'][-1], (list, np.ndarray)):
+                    latest_q_value = np.mean(locals['q_t_train'][-1])  # Take mean if it's a list/array
+                else:
+                    latest_q_value = locals['q_t_train'][-1]  # Use directly if it's a scalar
+
+            wandb.log({
+                "episode_reward": locals['episode_rewards'][-1],
+                "episode_length": locals['episode_lengths'][-1],
+                "mean_100ep_reward": np.mean(locals['episode_rewards'][-101:-1]) if len(locals['episode_rewards']) > 101 else np.mean(locals['episode_rewards']),
+                "mean_100ep_length": np.mean(locals['episode_lengths'][-101:-1]) if len(locals['episode_lengths']) > 101 else np.mean(locals['episode_lengths']),
+                "mean_100ep_ei": np.mean(locals['episode_ei'][-101:-1]) if len(locals['episode_ei']) > 101 else np.mean(locals['episode_ei']),  # Fixed this line
+                "q_value": latest_q_value,
+                "td_error": latest_td_error,
+                "epsilon": locals.get('update_eps', 0),
+                "timesteps": locals['t']
+            })
+        return False
+
+    # Combine the original callback with wandb callback
+    def combined_callback(locals, globals):
+        if callback is not None:
+            callback_result = callback(locals, globals)
+            if callback_result:
+                return True
+        return wandb_callback(locals, globals)
+
     with tempfile.TemporaryDirectory() as td:
         td = checkpoint_path or td
 
@@ -244,8 +302,8 @@ def learn(env,
             model_saved = True
 
         for t in range(max_timesteps):
-            if callback is not None:
-                if callback(locals(), globals()):
+            if combined_callback is not None:
+                if combined_callback(locals(), globals()):
                     break
             kwargs = {}
             if not param_noise:
