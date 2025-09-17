@@ -1,270 +1,308 @@
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
-import numpy as np
-import argparse
-import os
+from agent import ppo
 import gymnasium as gym
-from common.cmd_util import make_meta_env
-from agent.ppo.build_graph import lstm_to_mlp, build_policy
-from agent.deepq.utils import ObservationInput
-from agent.deepq.simple import ActWrapper
-import common.tf_util as U
+from common.misc_util import set_global_seeds
+import argparse
 import logger
-import copy
+import numpy as np
+import os
+import common.tf_util as U
+from agent.deepq.utils import ObservationInput
+from common.cmd_util import make_meta_env
 import icu_sepsis
-import minigrid
+import kellycoinflip
+import complexmaze
+import simplemaze
+import nchain
 from TabularAgents import TabularRL
 import utils
 
+SEEDS = [0, 1, 2, 3, 4]
+
 def prepare_initial_observation(max_seq_len, n_t_dim, meta_dim, meta_features):
     """Initialize the observation matrix with NaNs and meta-features."""
-    obs = np.full((max_seq_len, n_t_dim), np.nan, dtype=np.float32)
+    obs = np.zeros((max_seq_len, n_t_dim), dtype=np.float32)  # ← Use zeros instead of NaN
     obs[:, -meta_dim:] = meta_features
     return obs
 
-def eval(env, config):
-    seed = 0
-    np.random.seed(seed)
+def eval(env_name, config):
     learning_rate, discount_factor, epsilon = config
 
-    agent = TabularRL(env, learning_rate, epsilon, discount_factor)
+    all_final_rewards = []
 
-    episode_rewards = []
-    for episode in range(20001):
-        obs, info = env.reset(seed=seed + episode)
-        done = False
-        total_reward = 0
-        while not done:
-            action = agent.select_action(obs)
-            next_obs, reward, terminated, truncated, info = env.step(action)
-            action2 = agent.select_action(next_obs)
-            agent.update_sarsa(obs, action, next_obs, action2, reward, terminated)
-            total_reward += reward
-            done = terminated or truncated
-            obs = next_obs
-        episode_rewards.append(total_reward)
+    for seed in SEEDS:
+        np.random.seed(seed)
+        env = gym.make(env_name) # NChain-v0, KellyCoinflip-v0, Sepsis/ICU-Sepsis-v2
 
-    agent.epsilon = 0  # Greedy policy
-    rewards = []
-    for run in range(10):
-        total_rewards = []
-        for episode in range(100):
-            obs, info = env.reset(seed=run * 100 + episode)
+        agent = TabularRL(env, learning_rate, epsilon, discount_factor)
+
+        episode_rewards = []
+        window_size = 5000        
+        # Track convergence for early stopping
+        convergence_window = 2000
+        convergence_threshold = 0.001
+        
+        for episode in range(10001):
+            obs, info = env.reset(seed=seed + episode)
             done = False
-            episode_reward = 0
+            total_reward = 0
+
             while not done:
                 action = agent.select_action(obs)
                 next_obs, reward, terminated, truncated, info = env.step(action)
-                episode_reward += reward
+                action2 = agent.select_action(next_obs)
+                agent.update_sarsa(obs, action, next_obs, action2, reward, terminated)
+                total_reward += reward
                 done = terminated or truncated
                 obs = next_obs
-            total_rewards.append(episode_reward)
-        rewards.append(np.mean(total_rewards))
 
-    return np.mean(rewards)
+            episode_rewards.append(total_reward)
 
-def eval2(env, config):
-    seed = 0
-    np.random.seed(seed)
-    learning_rate, discount_factor, epsilon = config
+            # Early stopping
+            if len(episode_rewards) >= window_size:
+                avg_reward = np.mean(episode_rewards[-window_size:])
+                
+                # Remove for 8x8
+                if len(episode_rewards) >= convergence_window:
+                    recent_avg = np.mean(episode_rewards[-convergence_window//2:])
+                    older_avg = np.mean(episode_rewards[-convergence_window:-convergence_window//2])
+                    if abs(recent_avg - older_avg) < convergence_threshold:
+                        break
 
-    agent = TabularRL(env, learning_rate, epsilon, discount_factor)
-
-    episode_rewards = []
-    for episode in range(2001):
-        obs, info = env.reset(seed=seed + episode)
-        done = False
-        total_reward = 0
-        while not done:
-            action = agent.select_action(obs)
-            next_obs, reward, terminated, truncated, info = env.step(action)
-            action2 = agent.select_action(next_obs)
-            agent.update_sarsa(obs, action, next_obs, action2, reward, terminated)
-            total_reward += reward
-            done = terminated or truncated
-            obs = next_obs
-        episode_rewards.append(total_reward)
-
-    agent.epsilon = 0  # Greedy policy
-    rewards = []
-    for run in range(10):
-        total_rewards = []
-        for episode in range(100):
-            obs, info = env.reset(seed=run * 100 + episode)
+        # Evaluation
+        agent.epsilon = 0
+        eval_rewards = []
+        
+        num_eval_episodes = 200 
+        
+        eval_rng = np.random.RandomState(seed * 10000)
+        
+        for eval_episode in range(num_eval_episodes):
+            eval_seed = eval_rng.randint(0, 1000000)
+            
+            obs, info = env.reset(seed=eval_seed)
             done = False
-            episode_reward = 0
+            ep_reward = 0
+            
             while not done:
                 action = agent.select_action(obs)
                 next_obs, reward, terminated, truncated, info = env.step(action)
-                episode_reward += reward
+                ep_reward += reward
                 done = terminated or truncated
                 obs = next_obs
-            total_rewards.append(episode_reward)
-        rewards.append(np.mean(total_rewards))
+                
+            eval_rewards.append(ep_reward)
 
-    return np.mean(rewards)
+        all_final_rewards.append(np.mean(eval_rewards))
+        
+        env.close()
+
+    mean_reward = np.mean(all_final_rewards)
+    return mean_reward
 
 # Main optimization loop
-def optimize_hyperparameters(env_name, training_env, act_wrapper, max_seq_len, meta_dim, N_t, n_t_dim,
+def optimize_hyperparameters(env_name, training_env, ppo_act_function, max_seq_len, meta_dim, N_t, n_t_dim,
                              num_actions, max_trials):
-    """Uses the Hyp-RL agent to optimize RL agent hyperparameters.
+    """Uses the PPO agent to optimize RL agent hyperparameters in a single episode."""
 
-    Args:
-        env_name: Name of the new environment to optimize
-        training_env: The environment instance used during training (for action meanings)
-        act_wrapper: The trained act function
-        ...
-    """
-    # Create the new environment for optimization
-    env = gym.make(env_name)
-    meta_features = utils.encode_metafeatures(env)
-    current_obs_matrix = prepare_initial_observation(max_seq_len, n_t_dim, meta_dim, meta_features)
     hpo_history = []
     best_reward = -float('inf')
     best_config = None
+    best_action = None
+
+    # Entropy-based exploration parameters (similar to DQN LinearSchedule)
+    initial_entropy_coef = 0.8    # Start with high entropy for exploration
+    final_entropy_coef = 0.01     # End with low entropy for exploitation
+    exploration_fraction = 0.7     # Decay over 70% of trials (like DQN's exploration_fraction)
+    schedule_timesteps = int(exploration_fraction * max_trials)  # Linear decay period
 
     # Get action meanings from the training environment
     training_action_meanings = training_env.env.get_action_meanings2()
 
-    # Initialize new environment
-    obs, info = env.reset()
+    # Get target environment meta-features
+    target_env = gym.make(env_name)
+    target_meta_features = utils.encode_metafeatures(target_env)
+    target_env.close()
 
-    # Run trials
-    for i in range(max_trials):
-        # Get current state
-        print(f"\nIteration {i + 1}/{max_trials}")
-        # Determine current sequence length
-        current_seq_len = max(1, min(len(hpo_history), max_seq_len))
+    # Reset the meta-environment for a new episode
+    training_env.reset()
+
+    # Initialize observation matrix
+    obs = np.zeros(shape=training_env.observation_space.shape)
+
+    # Set initial state with target meta-features
+    obs[0, :] = np.append(np.repeat(np.NaN, repeats=N_t), target_meta_features).reshape(1, -1)
+    obs = np.nan_to_num(obs, copy=True, nan=0.0)
+
+    # Run the episode (each trial is one step)
+    for step in range(max_trials):
+        print(f"  Trial {step + 1}/{max_trials}")
+        
+        # Calculate current entropy coefficient using linear decay (like DQN)
+        if step < schedule_timesteps:
+            fraction = float(step) / schedule_timesteps
+            current_entropy_coef = initial_entropy_coef + fraction * (final_entropy_coef - initial_entropy_coef)
+        else:
+            current_entropy_coef = final_entropy_coef
+            
+        print(f"    Current entropy coefficient: {current_entropy_coef:.3f}")
+        
+        # Get current sequence length
+        current_seq_len = training_env.env._get_ep_len()
+        
         # Prepare observation batch for act function
-        obs_batch = current_obs_matrix[None, :, :]  # Shape: (1, max_seq_len, n_t_dim)
-        # Get action (hyperparameter config index) from Hyp-RL agent
-        action = act_wrapper(obs_batch, [current_seq_len])[0][0]
-        print(f"\nSelected action: {action}")
+        obs_batch = obs[None, :, :]
+        
+        # Get action from PPO meta-agent
+        action, value, neglogp = ppo_act_function(obs_batch, [current_seq_len])
+        
+        # Apply entropy-based exploration: occasionally choose random action based on entropy coefficient
+        if np.random.random() < current_entropy_coef:
+            action = np.random.randint(0, num_actions)
+            print(f"    Exploration: Random action {action} (entropy-based)")
+        else:
+            # Extract scalar action from array if needed
+            action = int(action[0]) if hasattr(action, '__len__') else int(action)
+            print(f"    Exploitation: PPO action {action}")
 
         # Validate action
         if not (0 <= action < num_actions):
-            print(f"  Error: Action {action} out of bounds. Skipping iteration.")
+            print(f"    Error: Action {action} out of bounds. Skipping trial.")
             continue
 
-        # Get the hyperparameters from the TRAINING environment's action space
+        # Get the hyperparameters
         config = training_action_meanings[action]
-        print(f"  Action {action} corresponds to hyperparameters (from training env):")
-        print(f"  {config}")
+        print(f"    Selected action: {action}")
+        print(f"    Config: {config}")
 
-        # Evaluate the configuration on the NEW environment
-        reward = eval2(env, config)
+        # Evaluate on target environment
+        reward = eval(env_name, config)
+        
+        # Store the result
         hpo_history.append((config, reward))
+        print(f"    Reward: {reward:.3f}")
 
         # Update best configuration
         if reward > best_reward:
             best_reward = reward
             best_config = config
             best_action = action
+            print(f"    *** NEW BEST! ***")
 
-        # Update observation matrix
-        if len(hpo_history) <= max_seq_len:
-            idx = len(hpo_history) - 1
-            # Store hyperparameters in first 3 positions
-            current_obs_matrix[idx, :N_t - 1] = config  # N_t-1 because last position is for reward
-            # Store reward in the 4th position
-            current_obs_matrix[idx, N_t - 1] = reward
-            # Meta-features already set during initialization
-        else:
-            # Shift matrix to keep the last max_seq_len trials
-            current_obs_matrix[:-1, :] = current_obs_matrix[1:, :]
-            current_obs_matrix[-1, :N_t - 1] = config
-            current_obs_matrix[-1, N_t - 1] = reward
+        print(f"    Best config so far: {best_config}")
+        print(f"    Best performance so far: {best_reward}")
 
-        print(f"  Reward: {reward:.2f}")
+        # Step the meta-environment to get the state representation
+        available_datasets = list(training_env.ale.metadata.keys())
+        dataset_idx = available_datasets[0] if available_datasets else 0
+        new_state, meta_reward, done, info = training_env.step(action, dataset_idx)
+        
+        # Update the observation matrix with the complete trial information
+        current_row = training_env.env._get_ep_len()
+        if current_row < obs.shape[0]:
+            # Format: [config, reward, meta_features]
+            trial_data = np.append(config, reward)
+            trial_data = np.append(trial_data, target_meta_features)
+            
+            # Ensure we don't exceed the observation space
+            if len(trial_data) <= obs.shape[1]:
+                obs[current_row, :len(trial_data)] = trial_data
+            else:
+                # Truncate if necessary
+                obs[current_row, :] = trial_data[:obs.shape[1]]
 
-    # Find the best configuration
-    best_config, best_performance = max(hpo_history, key=lambda x: x[1])
-    print("\nFinal Results:")
-    print(f"Best Configuration: {best_config}")
-    print(f"Best Performance: {best_performance:.2f}")
+        # Override episode termination for HPO
+        if step + 1 >= max_trials:
+            print(f"    HPO completed after {step + 1} trials")
+            break
+        
+        if done:
+            print(f"    Meta-environment terminated early, but continuing HPO...")
 
-    env.close()
-    return best_config, best_performance
+    # === FINAL RESULTS ===
+    print(f"\n=== FINAL RESULTS ===")
+
+    if hpo_history:
+        best_config, best_performance = max(hpo_history, key=lambda x: x[1])
+        print(f"Best configuration: {best_config}")
+        print(f"Best performance: {best_performance:.3f}")
+        print(f"Total trials completed: {len(hpo_history)}")
+        
+        # Return the best config and performance
+        return best_config, best_performance
+        
+    else:
+        print("No trials completed!")
+        return None, -float('inf')
 
 def main():
     # Parse arguments (if needed for environment or other settings)
     parser = argparse.ArgumentParser()
     parser.add_argument('--env_id', help='environment ID', default='nnMeta-v40')
-    parser.add_argument('--new_env_id', help='environment ID', default='MiniGrid-DoorKey-5x5-v0') #MiniGrid-DoorKey-5x5-v0, MiniGrid-Empty-5x5-v0, Sepsis/ICU-Sepsis-v2
+    parser.add_argument('--new_env_id', help='environment ID', default='ComplexMaze-v0') # Sepsis/ICU-Sepsis-v2
     parser.add_argument('--seed', help='RNG seed', type=int, default=0)
     args = parser.parse_args()
 
-    path = "checkpoints2"
+    path = "checkpoints"  # Adjust to your desired log directory
     logger.configure(path)
-
-    # Create the environment (same as used in training)
+        
+    # Create the environment with this run's seed
     training_env = make_meta_env(args.env_id, seed=args.seed)
-    N_t = 4  # Number of hyperparameter dimensions
-    N_f = 21  # Number of meta-features
-    max_seq_len = training_env.observation_space.shape[0]
+    N_t = 4
+    N_f = 21
 
     sess = tf.Session()
     sess.__enter__()
 
-    # Define the model architecture (must match training)
-    actor_network, value_network = lstm_to_mlp(
-        cell=(32, N_t, N_f),  # Make sure these parameters match your training
+    # Define the PPO model architecture (must match training)
+    actor_network, value_network = ppo.lstm_to_mlp(
+        cell=(32, N_t, N_f),
         aktiv=tf.nn.tanh,
-        hiddens=[128],  # Make sure this matches your training
-        max_length=max_seq_len,
+        hiddens=[128],
+        max_length=training_env.observation_space.shape[0]
     )
 
     # Create the observation placeholder function
     def make_obs_ph(name):
         return ObservationInput(training_env.observation_space, name=name)
 
-    # Build the policy networks
-    act, train, update_old_policy, compute_values = build_policy(
+    # Build the PPO policy
+    ppo_act_function, ppo_train_function, ppo_update_old_policy, ppo_compute_values = ppo.build_policy(
         make_obs_ph=make_obs_ph,
         actor_network=actor_network,
         value_network=value_network,
         num_actions=training_env.action_space.n,
+        scope="ppo",
+        entropy_coef=0.1,
+        reuse=None
     )
-
-    # Store act parameters for saving/loading
-    act_params = {
-        'make_obs_ph': make_obs_ph,
-        'actor_network': actor_network,
-        'value_network': value_network,
-        'num_actions': training_env.action_space.n,
-        'N_t': N_t
-    }
-
-    # Create the act wrapper
-    trained_act_wrapper = ActWrapper(act, act_params)
 
     # Initialize the model
     U.initialize()
-    update_old_policy()
 
-    model_dir = "../Users2/janrichtr/Desktop/RL-HPO/batch_size-64/buffer_size-2048/cell-32/checkpoint_freq-10000/clip_ratio-0.2/env_id-nnMeta-v40/gamma-0.99/lam-0.95/log_interval-1/lr-0.0002/nhidden-128/num_timesteps-1000000/seed-0/train_epochs-10/train_iters-4"
+    # Load the trained PPO model
+    checkpoint_dir = "/workspace/RL-HPO/UsersPPO/janrichtr/Desktop/RL-HPO/batch_size-128/buffer_size-2048/cell-32/checkpoint_freq-10000/clip_ratio-0.3/entropy_coef-0.1/env_id-nnMeta-v40/gamma-0.99/lam-0.95/log_interval-1/lr-0.0001/nhidden-128/num_timesteps-3000000/seed-0/train_epochs-10/train_iters-4"
 
-    # Load the trained model
-    model_file = os.path.join(model_dir, "model")
-    U.load_state(model_file)
-    logger.log('Loaded model from {}'.format(model_file))
+    U.load_state(os.path.join(checkpoint_dir, "model"))
 
-    # Optimize hyperparameters for the new environment
-    best_config, best_reward = optimize_hyperparameters(
+    max_length = training_env.observation_space.shape[0]
+
+    # Run HPO for this seed
+    best_config, best_performance = optimize_hyperparameters(
         env_name=args.new_env_id,
         training_env=training_env,
-        act_wrapper=trained_act_wrapper,
-        max_seq_len=max_seq_len,
+        ppo_act_function=ppo_act_function,
+        max_seq_len=max_length,
         meta_dim=N_f,
         N_t=N_t,
         n_t_dim=N_t + N_f,
         num_actions=training_env.action_space.n,
-        max_trials=10
+        max_trials=50
     )
-
-    print("\nFinal Results:")
-    print(f"Best configuration: {best_config}")
-    print(f"Best reward: {best_reward:.4f}")
+    
+    # Clean up session for next run
+    sess.close()
 
 if __name__ == '__main__':
     main()
