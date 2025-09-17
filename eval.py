@@ -12,10 +12,8 @@ from agent.deepq.utils import ObservationInput
 from common.cmd_util import make_meta_env
 from agent.deepq.simple import ActWrapper
 import icu_sepsis
-import kellycoinflip
 import complexmaze
 import simplemaze
-import nchain
 from TabularAgents import TabularRL
 import utils
 
