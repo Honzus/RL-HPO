@@ -9,6 +9,7 @@ import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 from common.utils import model_dir
 import wandb
+from common.tf_util import ortho_init
 
 def configure_gpu():
     gpus = tf.config.list_physical_devices('GPU')
@@ -31,16 +32,16 @@ def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--env_id', help='environment ID', default='nnMeta-v40')
     parser.add_argument('--seed', help='RNG seed', type=int, default=0)
-    parser.add_argument('--num-timesteps', type=int, default=int(17e5))  # 10e7
+    parser.add_argument('--num-timesteps', type=int, default=int(5e6))  # 10e7
     parser.add_argument('--checkpoint-freq', type=int, default=10000)
-    parser.add_argument('--lr', type=float, default=2e-4)
+    parser.add_argument('--lr', type=float, default=1e-4)
     parser.add_argument('--buffer_size', type=int, default=2048)
     parser.add_argument('--train_epochs', type=int, default=10)
     parser.add_argument('--train_iters', type=int, default=4)
-    parser.add_argument('--batch_size', type=int, default=64)
+    parser.add_argument('--batch_size', type=int, default=128)
     parser.add_argument('--gamma', type=float, default=0.99)
     parser.add_argument('--lam', type=float, default=0.95)
-    parser.add_argument('--clip_ratio', type=float, default=0.2)
+    parser.add_argument('--clip_ratio', type=float, default=0.3)
     parser.add_argument('--cell', type=int, default=32)
     parser.add_argument('--nhidden', type=int, default=128)
     parser.add_argument('--log_interval', type=int, default=1)
