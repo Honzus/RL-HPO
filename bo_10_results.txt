@@ -1,0 +1,291 @@
+=== Starting Run 1/5 ===
+/Users/janrichtr/Desktop/Thesis/Thesis/bo.py:100: ExperimentalWarning: GPSampler is experimental (supported from v3.6.0). The interface can change in the future.
+  study = optuna.create_study(direction="maximize", pruner=pruner, sampler=optuna.samplers.GPSampler(seed=run_seed))
+[I 2025-10-20 15:44:13,806] A new study created in memory with name: no-name-bc4db430-a280-4642-9260-e2ec4d4a12d6
+[I 2025-10-20 15:44:17,185] Trial 0 finished with value: 0.5980000000000001 and parameters: {'epsilon': 0.5488135039273248, 'learning_rate': 0.7151893663724195}. Best is trial 0 with value: 0.5980000000000001.
+[I 2025-10-20 15:44:21,446] Trial 1 finished with value: 0.9675 and parameters: {'epsilon': 0.6027633760716439, 'learning_rate': 0.5448831829968969}. Best is trial 1 with value: 0.9675.
+[I 2025-10-20 15:44:24,659] Trial 2 finished with value: 1.0470000000000002 and parameters: {'epsilon': 0.4236547993389047, 'learning_rate': 0.6458941130666561}. Best is trial 2 with value: 1.0470000000000002.
+[I 2025-10-20 15:44:28,506] Trial 3 finished with value: 0.1925 and parameters: {'epsilon': 0.4375872112626925, 'learning_rate': 0.8917730007820798}. Best is trial 2 with value: 1.0470000000000002.
+[I 2025-10-20 15:44:31,766] Trial 4 finished with value: 1.2195 and parameters: {'epsilon': 0.9636627605010293, 'learning_rate': 0.3834415188257777}. Best is trial 4 with value: 1.2195.
+[I 2025-10-20 15:44:35,134] Trial 5 finished with value: 0.0 and parameters: {'epsilon': 0.7917250380826646, 'learning_rate': 0.5288949197529045}. Best is trial 4 with value: 1.2195.
+[I 2025-10-20 15:44:38,350] Trial 6 finished with value: 0.018 and parameters: {'epsilon': 0.5680445610939323, 'learning_rate': 0.925596638292661}. Best is trial 4 with value: 1.2195.
+[I 2025-10-20 15:44:40,936] Trial 7 finished with value: 0.34049999999999997 and parameters: {'epsilon': 0.07103605819788694, 'learning_rate': 0.08712929970154071}. Best is trial 4 with value: 1.2195.
+[I 2025-10-20 15:44:43,170] Trial 8 finished with value: 0.0 and parameters: {'epsilon': 0.02021839744032572, 'learning_rate': 0.832619845547938}. Best is trial 4 with value: 1.2195.
+[I 2025-10-20 15:44:46,998] Trial 9 finished with value: 0.521 and parameters: {'epsilon': 0.7781567509498505, 'learning_rate': 0.8700121482468192}. Best is trial 4 with value: 1.2195.
+Run 1 completed:
+  Best value: 1.2195
+  Best params: {'epsilon': 0.9636627605010293, 'learning_rate': 0.3834415188257777}
+
+=== Starting Run 2/5 ===
+/Users/janrichtr/Desktop/Thesis/Thesis/bo.py:100: ExperimentalWarning: GPSampler is experimental (supported from v3.6.0). The interface can change in the future.
+  study = optuna.create_study(direction="maximize", pruner=pruner, sampler=optuna.samplers.GPSampler(seed=run_seed))
+[I 2025-10-20 15:44:46,998] A new study created in memory with name: no-name-a94d1fe5-c266-409a-a457-6ad0769c4a1e
+[I 2025-10-20 15:44:50,073] Trial 0 finished with value: 0.1715 and parameters: {'epsilon': 0.417022004702574, 'learning_rate': 0.7203244934421581}. Best is trial 0 with value: 0.1715.
+[I 2025-10-20 15:44:52,226] Trial 1 finished with value: 0.0 and parameters: {'epsilon': 0.00011437481734488664, 'learning_rate': 0.30233257263183977}. Best is trial 0 with value: 0.1715.
+[I 2025-10-20 15:44:54,994] Trial 2 finished with value: 0.8825 and parameters: {'epsilon': 0.14675589081711304, 'learning_rate': 0.0923385947687978}. Best is trial 2 with value: 0.8825.
+[I 2025-10-20 15:44:58,384] Trial 3 finished with value: 0.513 and parameters: {'epsilon': 0.1862602113776709, 'learning_rate': 0.34556072704304774}. Best is trial 2 with value: 0.8825.
+[I 2025-10-20 15:45:01,411] Trial 4 finished with value: 0.3225 and parameters: {'epsilon': 0.39676747423066994, 'learning_rate': 0.538816734003357}. Best is trial 2 with value: 0.8825.
+[I 2025-10-20 15:45:04,634] Trial 5 finished with value: 0.3675 and parameters: {'epsilon': 0.4191945144032948, 'learning_rate': 0.6852195003967595}. Best is trial 2 with value: 0.8825.
+[I 2025-10-20 15:45:07,345] Trial 6 finished with value: 0.16899999999999998 and parameters: {'epsilon': 0.20445224973151743, 'learning_rate': 0.8781174363909454}. Best is trial 2 with value: 0.8825.
+[I 2025-10-20 15:45:09,620] Trial 7 finished with value: 0.0 and parameters: {'epsilon': 0.027387593197926163, 'learning_rate': 0.6704675101784022}. Best is trial 2 with value: 0.8825.
+[I 2025-10-20 15:45:12,933] Trial 8 finished with value: 0.20800000000000002 and parameters: {'epsilon': 0.41730480236712697, 'learning_rate': 0.5586898284457517}. Best is trial 2 with value: 0.8825.
+[I 2025-10-20 15:45:16,140] Trial 9 finished with value: 1.0550000000000002 and parameters: {'epsilon': 0.14038693859523377, 'learning_rate': 0.1981014890848788}. Best is trial 9 with value: 1.0550000000000002.
+Run 2 completed:
+  Best value: 1.0550
+  Best params: {'epsilon': 0.14038693859523377, 'learning_rate': 0.1981014890848788}
+
+=== Starting Run 3/5 ===
+[I 2025-10-20 15:45:16,140] A new study created in memory with name: no-name-b4f5142e-556d-44ba-958d-14cea7a19f1a
+[I 2025-10-20 15:45:19,140] Trial 0 finished with value: 1.721 and parameters: {'epsilon': 0.43599490214200376, 'learning_rate': 0.025926231827891333}. Best is trial 0 with value: 1.721.
+[I 2025-10-20 15:45:22,296] Trial 1 finished with value: 0.8515 and parameters: {'epsilon': 0.5496624778787091, 'learning_rate': 0.4353223926182769}. Best is trial 0 with value: 1.721.
+[I 2025-10-20 15:45:25,612] Trial 2 finished with value: 1.396 and parameters: {'epsilon': 0.42036780208748903, 'learning_rate': 0.3303348210038741}. Best is trial 0 with value: 1.721.
+[I 2025-10-20 15:45:29,649] Trial 3 finished with value: 1.203 and parameters: {'epsilon': 0.2046486340378425, 'learning_rate': 0.6192709663506637}. Best is trial 0 with value: 1.721.
+[I 2025-10-20 15:45:33,119] Trial 4 finished with value: 1.0245 and parameters: {'epsilon': 0.29965467367452314, 'learning_rate': 0.26682727510286663}. Best is trial 0 with value: 1.721.
+[I 2025-10-20 15:45:36,773] Trial 5 finished with value: 0.5065 and parameters: {'epsilon': 0.6211338327692949, 'learning_rate': 0.5291420942770391}. Best is trial 0 with value: 1.721.
+[I 2025-10-20 15:45:39,482] Trial 6 finished with value: 0.53 and parameters: {'epsilon': 0.13457994534493356, 'learning_rate': 0.5135781212657464}. Best is trial 0 with value: 1.721.
+[I 2025-10-20 15:45:43,022] Trial 7 finished with value: 0.3205 and parameters: {'epsilon': 0.18443986564691528, 'learning_rate': 0.7853351478166735}. Best is trial 0 with value: 1.721.
+[I 2025-10-20 15:45:46,377] Trial 8 finished with value: 1.5815 and parameters: {'epsilon': 0.8539752926394888, 'learning_rate': 0.4942368373819278}. Best is trial 0 with value: 1.721.
+[I 2025-10-20 15:45:49,400] Trial 9 finished with value: 1.722 and parameters: {'epsilon': 0.846561485357468, 'learning_rate': 0.079645477009061}. Best is trial 9 with value: 1.722.
+Run 3 completed:
+  Best value: 1.7220
+  Best params: {'epsilon': 0.846561485357468, 'learning_rate': 0.079645477009061}
+
+=== Starting Run 4/5 ===
+[I 2025-10-20 15:45:49,400] A new study created in memory with name: no-name-0b2b45dc-4559-402a-a844-354132cfb8d9
+[I 2025-10-20 15:45:52,555] Trial 0 finished with value: 0.3435 and parameters: {'epsilon': 0.5507979025745755, 'learning_rate': 0.7081478226181048}. Best is trial 0 with value: 0.3435.
+[I 2025-10-20 15:45:55,603] Trial 1 finished with value: 0.5305 and parameters: {'epsilon': 0.2909047389129443, 'learning_rate': 0.510827605197663}. Best is trial 1 with value: 0.5305.
+[I 2025-10-20 15:45:59,260] Trial 2 finished with value: 0.324 and parameters: {'epsilon': 0.8929469543476547, 'learning_rate': 0.8962930889334381}. Best is trial 1 with value: 0.5305.
+[I 2025-10-20 15:46:02,293] Trial 3 finished with value: 0.8850000000000001 and parameters: {'epsilon': 0.12558531046383625, 'learning_rate': 0.20724287813818676}. Best is trial 3 with value: 0.8850000000000001.
+[I 2025-10-20 15:46:04,638] Trial 4 finished with value: 0.0 and parameters: {'epsilon': 0.05146720330082988, 'learning_rate': 0.44080984365063647}. Best is trial 3 with value: 0.8850000000000001.
+[I 2025-10-20 15:46:06,854] Trial 5 finished with value: 0.0 and parameters: {'epsilon': 0.029876210878566956, 'learning_rate': 0.4568332243947111}. Best is trial 3 with value: 0.8850000000000001.
+[I 2025-10-20 15:46:10,062] Trial 6 finished with value: 1.0435 and parameters: {'epsilon': 0.6491440476147607, 'learning_rate': 0.2784872826479753}. Best is trial 6 with value: 1.0435.
+[I 2025-10-20 15:46:13,097] Trial 7 finished with value: 0.525 and parameters: {'epsilon': 0.6762549019801313, 'learning_rate': 0.5908628174163508}. Best is trial 6 with value: 1.0435.
+[I 2025-10-20 15:46:15,311] Trial 8 finished with value: 0.0 and parameters: {'epsilon': 0.023981882377165364, 'learning_rate': 0.558854087990882}. Best is trial 6 with value: 1.0435.
+[I 2025-10-20 15:46:18,366] Trial 9 finished with value: 0.8785000000000001 and parameters: {'epsilon': 0.2592524469074654, 'learning_rate': 0.41510119701006964}. Best is trial 6 with value: 1.0435.
+Run 4 completed:
+  Best value: 1.0435
+  Best params: {'epsilon': 0.6491440476147607, 'learning_rate': 0.2784872826479753}
+
+=== Starting Run 5/5 ===
+[I 2025-10-20 15:46:18,366] A new study created in memory with name: no-name-de1e4014-0d55-4bd2-bc89-6774c98cd5a9
+[I 2025-10-20 15:46:21,621] Trial 0 finished with value: 1.342 and parameters: {'epsilon': 0.9670298390136767, 'learning_rate': 0.5472322491757223}. Best is trial 0 with value: 1.342.
+[I 2025-10-20 15:46:24,955] Trial 1 finished with value: 0.3205 and parameters: {'epsilon': 0.9726843599648843, 'learning_rate': 0.7148159936743647}. Best is trial 0 with value: 1.342.
+[I 2025-10-20 15:46:28,246] Trial 2 finished with value: 1.5875000000000001 and parameters: {'epsilon': 0.6977288245972708, 'learning_rate': 0.21608949558037638}. Best is trial 2 with value: 1.5875000000000001.
+[I 2025-10-20 15:46:31,617] Trial 3 finished with value: 1.734 and parameters: {'epsilon': 0.9762744547762418, 'learning_rate': 0.006230255204589863}. Best is trial 3 with value: 1.734.
+[I 2025-10-20 15:46:34,731] Trial 4 finished with value: 0.44000000000000006 and parameters: {'epsilon': 0.25298236238344396, 'learning_rate': 0.4347915324044458}. Best is trial 3 with value: 1.734.
+[I 2025-10-20 15:46:38,146] Trial 5 finished with value: 1.565 and parameters: {'epsilon': 0.7793829217937525, 'learning_rate': 0.19768507460025309}. Best is trial 3 with value: 1.734.
+[I 2025-10-20 15:46:41,538] Trial 6 finished with value: 0.0 and parameters: {'epsilon': 0.8629932355992223, 'learning_rate': 0.9834006771753128}. Best is trial 3 with value: 1.734.
+[I 2025-10-20 15:46:44,980] Trial 7 finished with value: 0.6845 and parameters: {'epsilon': 0.16384224140469872, 'learning_rate': 0.5973339439328592}. Best is trial 3 with value: 1.734.
+[I 2025-10-20 15:46:47,151] Trial 8 finished with value: 0.0 and parameters: {'epsilon': 0.008986097667554982, 'learning_rate': 0.3865712826436294}. Best is trial 3 with value: 1.734.
+[I 2025-10-20 15:46:49,364] Trial 9 finished with value: 0.0 and parameters: {'epsilon': 0.044160057931499574, 'learning_rate': 0.9566529677142359}. Best is trial 3 with value: 1.734.
+Run 5 completed:
+  Best value: 1.7340
+  Best params: {'epsilon': 0.9762744547762418, 'learning_rate': 0.006230255204589863}
+
+=== AGGREGATED RESULTS OVER 5 RUNS ===
+Average best value: 1.3548 ± 0.3110
+Value range: [1.0435, 1.7340]
+Most common best config: {'epsilon': 0.9636627605010293, 'learning_rate': 0.3834415188257777} (appeared in 1/5 runs)
+
+Detailed results:
+  Run 1: 1.2195 (lr=0.3834, eps=0.9637)
+  Run 2: 1.0550 (lr=0.1981, eps=0.1404)
+  Run 3: 1.7220 (lr=0.0796, eps=0.8466)
+  Run 4: 1.0435 (lr=0.2785, eps=0.6491)
+  Run 5: 1.7340 (lr=0.0062, eps=0.9763)
+
+____________________________
+
+=== Starting Run 1/5 ===
+/Users/janrichtr/Desktop/Thesis/Thesis/bo.py:100: ExperimentalWarning: GPSampler is experimental (supported from v3.6.0). The interface can change in the future.
+  study = optuna.create_study(direction="maximize", pruner=pruner, sampler=optuna.samplers.GPSampler(seed=run_seed))
+[I 2025-10-20 15:49:41,350] A new study created in memory with name: no-name-785dbc9a-0073-474f-917d-2ce793815711
+[I 2025-10-20 15:49:43,736] Trial 0 finished with value: 0.6 and parameters: {'epsilon': 0.5488135039273248, 'learning_rate': 0.7151893663724195}. Best is trial 0 with value: 0.6.
+[I 2025-10-20 15:49:46,098] Trial 1 finished with value: 0.8 and parameters: {'epsilon': 0.6027633760716439, 'learning_rate': 0.5448831829968969}. Best is trial 1 with value: 0.8.
+[I 2025-10-20 15:49:49,060] Trial 2 finished with value: 0.6 and parameters: {'epsilon': 0.4236547993389047, 'learning_rate': 0.6458941130666561}. Best is trial 1 with value: 0.8.
+[I 2025-10-20 15:49:51,502] Trial 3 finished with value: 0.2 and parameters: {'epsilon': 0.4375872112626925, 'learning_rate': 0.8917730007820798}. Best is trial 1 with value: 0.8.
+[I 2025-10-20 15:49:55,043] Trial 4 finished with value: 1.0 and parameters: {'epsilon': 0.9636627605010293, 'learning_rate': 0.3834415188257777}. Best is trial 4 with value: 1.0.
+[I 2025-10-20 15:49:57,963] Trial 5 finished with value: 0.8 and parameters: {'epsilon': 0.7917250380826646, 'learning_rate': 0.5288949197529045}. Best is trial 4 with value: 1.0.
+[I 2025-10-20 15:50:01,002] Trial 6 finished with value: 0.4 and parameters: {'epsilon': 0.5680445610939323, 'learning_rate': 0.925596638292661}. Best is trial 4 with value: 1.0.
+[I 2025-10-20 15:50:03,293] Trial 7 finished with value: 0.0 and parameters: {'epsilon': 0.07103605819788694, 'learning_rate': 0.08712929970154071}. Best is trial 4 with value: 1.0.
+[I 2025-10-20 15:50:05,494] Trial 8 finished with value: 0.0 and parameters: {'epsilon': 0.02021839744032572, 'learning_rate': 0.832619845547938}. Best is trial 4 with value: 1.0.
+[I 2025-10-20 15:50:08,724] Trial 9 finished with value: 0.2 and parameters: {'epsilon': 0.7781567509498505, 'learning_rate': 0.8700121482468192}. Best is trial 4 with value: 1.0.
+Run 1 completed:
+  Best value: 1.0000
+  Best params: {'epsilon': 0.9636627605010293, 'learning_rate': 0.3834415188257777}
+
+=== Starting Run 2/5 ===
+/Users/janrichtr/Desktop/Thesis/Thesis/bo.py:100: ExperimentalWarning: GPSampler is experimental (supported from v3.6.0). The interface can change in the future.
+  study = optuna.create_study(direction="maximize", pruner=pruner, sampler=optuna.samplers.GPSampler(seed=run_seed))
+[I 2025-10-20 15:50:08,725] A new study created in memory with name: no-name-8dd8e40e-c630-4c5d-9f7d-736db74698b7
+[I 2025-10-20 15:50:11,027] Trial 0 finished with value: 0.4 and parameters: {'epsilon': 0.417022004702574, 'learning_rate': 0.7203244934421581}. Best is trial 0 with value: 0.4.
+[I 2025-10-20 15:50:13,174] Trial 1 finished with value: 0.0 and parameters: {'epsilon': 0.00011437481734488664, 'learning_rate': 0.30233257263183977}. Best is trial 0 with value: 0.4.
+[I 2025-10-20 15:50:15,585] Trial 2 finished with value: 0.0 and parameters: {'epsilon': 0.14675589081711304, 'learning_rate': 0.0923385947687978}. Best is trial 0 with value: 0.4.
+[I 2025-10-20 15:50:17,968] Trial 3 finished with value: 0.0 and parameters: {'epsilon': 0.1862602113776709, 'learning_rate': 0.34556072704304774}. Best is trial 0 with value: 0.4.
+[I 2025-10-20 15:50:20,939] Trial 4 finished with value: 0.6 and parameters: {'epsilon': 0.39676747423066994, 'learning_rate': 0.538816734003357}. Best is trial 4 with value: 0.6.
+[I 2025-10-20 15:50:23,931] Trial 5 finished with value: 0.4 and parameters: {'epsilon': 0.4191945144032948, 'learning_rate': 0.6852195003967595}. Best is trial 4 with value: 0.6.
+[I 2025-10-20 15:50:26,295] Trial 6 finished with value: 0.0 and parameters: {'epsilon': 0.20445224973151743, 'learning_rate': 0.8781174363909454}. Best is trial 4 with value: 0.6.
+[I 2025-10-20 15:50:28,497] Trial 7 finished with value: 0.0 and parameters: {'epsilon': 0.027387593197926163, 'learning_rate': 0.6704675101784022}. Best is trial 4 with value: 0.6.
+[I 2025-10-20 15:50:31,148] Trial 8 finished with value: 0.4 and parameters: {'epsilon': 0.41730480236712697, 'learning_rate': 0.5586898284457517}. Best is trial 4 with value: 0.6.
+[I 2025-10-20 15:50:33,465] Trial 9 finished with value: 0.0 and parameters: {'epsilon': 0.14038693859523377, 'learning_rate': 0.1981014890848788}. Best is trial 4 with value: 0.6.
+Run 2 completed:
+  Best value: 0.6000
+  Best params: {'epsilon': 0.39676747423066994, 'learning_rate': 0.538816734003357}
+
+=== Starting Run 3/5 ===
+[I 2025-10-20 15:50:33,466] A new study created in memory with name: no-name-ccc61c8e-7318-4d14-b6e6-854d0f1f1c19
+[I 2025-10-20 15:50:35,681] Trial 0 finished with value: 1.0 and parameters: {'epsilon': 0.43599490214200376, 'learning_rate': 0.025926231827891333}. Best is trial 0 with value: 1.0.
+[I 2025-10-20 15:50:38,185] Trial 1 finished with value: 0.6 and parameters: {'epsilon': 0.5496624778787091, 'learning_rate': 0.4353223926182769}. Best is trial 0 with value: 1.0.
+[I 2025-10-20 15:50:40,044] Trial 2 finished with value: 1.0 and parameters: {'epsilon': 0.42036780208748903, 'learning_rate': 0.3303348210038741}. Best is trial 0 with value: 1.0.
+[I 2025-10-20 15:50:42,446] Trial 3 finished with value: 0.0 and parameters: {'epsilon': 0.2046486340378425, 'learning_rate': 0.6192709663506637}. Best is trial 0 with value: 1.0.
+[I 2025-10-20 15:50:45,628] Trial 4 finished with value: 0.8 and parameters: {'epsilon': 0.29965467367452314, 'learning_rate': 0.26682727510286663}. Best is trial 0 with value: 1.0.
+[I 2025-10-20 15:50:48,068] Trial 5 finished with value: 0.6 and parameters: {'epsilon': 0.6211338327692949, 'learning_rate': 0.5291420942770391}. Best is trial 0 with value: 1.0.
+[I 2025-10-20 15:50:50,368] Trial 6 finished with value: 0.0 and parameters: {'epsilon': 0.13457994534493356, 'learning_rate': 0.5135781212657464}. Best is trial 0 with value: 1.0.
+[I 2025-10-20 15:50:52,758] Trial 7 finished with value: 0.0 and parameters: {'epsilon': 0.18443986564691528, 'learning_rate': 0.7853351478166735}. Best is trial 0 with value: 1.0.
+[I 2025-10-20 15:50:55,925] Trial 8 finished with value: 0.6 and parameters: {'epsilon': 0.8539752926394888, 'learning_rate': 0.4942368373819278}. Best is trial 0 with value: 1.0.
+[I 2025-10-20 15:50:59,194] Trial 9 finished with value: 1.0 and parameters: {'epsilon': 0.846561485357468, 'learning_rate': 0.079645477009061}. Best is trial 0 with value: 1.0.
+Run 3 completed:
+  Best value: 1.0000
+  Best params: {'epsilon': 0.43599490214200376, 'learning_rate': 0.025926231827891333}
+
+=== Starting Run 4/5 ===
+[I 2025-10-20 15:50:59,195] A new study created in memory with name: no-name-c75b46c7-b88a-4d26-b6e7-2d5bbb7e2140
+[I 2025-10-20 15:51:01,551] Trial 0 finished with value: 0.0 and parameters: {'epsilon': 0.5507979025745755, 'learning_rate': 0.7081478226181048}. Best is trial 0 with value: 0.0.
+[I 2025-10-20 15:51:03,891] Trial 1 finished with value: 0.4 and parameters: {'epsilon': 0.2909047389129443, 'learning_rate': 0.510827605197663}. Best is trial 1 with value: 0.4.
+[I 2025-10-20 15:51:06,813] Trial 2 finished with value: 0.0 and parameters: {'epsilon': 0.8929469543476547, 'learning_rate': 0.8962930889334381}. Best is trial 1 with value: 0.4.
+[I 2025-10-20 15:51:09,141] Trial 3 finished with value: 0.0 and parameters: {'epsilon': 0.12558531046383625, 'learning_rate': 0.20724287813818676}. Best is trial 1 with value: 0.4.
+[I 2025-10-20 15:51:11,347] Trial 4 finished with value: 0.0 and parameters: {'epsilon': 0.05146720330082988, 'learning_rate': 0.44080984365063647}. Best is trial 1 with value: 0.4.
+[I 2025-10-20 15:51:13,602] Trial 5 finished with value: 0.0 and parameters: {'epsilon': 0.029876210878566956, 'learning_rate': 0.4568332243947111}. Best is trial 1 with value: 0.4.
+[I 2025-10-20 15:51:16,895] Trial 6 finished with value: 1.0 and parameters: {'epsilon': 0.6491440476147607, 'learning_rate': 0.2784872826479753}. Best is trial 6 with value: 1.0.
+[I 2025-10-20 15:51:19,878] Trial 7 finished with value: 0.6 and parameters: {'epsilon': 0.6762549019801313, 'learning_rate': 0.5908628174163508}. Best is trial 6 with value: 1.0.
+[I 2025-10-20 15:51:22,530] Trial 8 finished with value: 0.0 and parameters: {'epsilon': 0.023981882377165364, 'learning_rate': 0.558854087990882}. Best is trial 6 with value: 1.0.
+[I 2025-10-20 15:51:26,278] Trial 9 finished with value: 0.6 and parameters: {'epsilon': 0.2592524469074654, 'learning_rate': 0.41510119701006964}. Best is trial 6 with value: 1.0.
+Run 4 completed:
+  Best value: 1.0000
+  Best params: {'epsilon': 0.6491440476147607, 'learning_rate': 0.2784872826479753}
+
+=== Starting Run 5/5 ===
+[I 2025-10-20 15:51:26,278] A new study created in memory with name: no-name-8f506aee-a861-446d-8b57-22b6ec355dc8
+[I 2025-10-20 15:51:29,695] Trial 0 finished with value: 0.4 and parameters: {'epsilon': 0.9670298390136767, 'learning_rate': 0.5472322491757223}. Best is trial 0 with value: 0.4.
+[I 2025-10-20 15:51:32,843] Trial 1 finished with value: 0.6 and parameters: {'epsilon': 0.9726843599648843, 'learning_rate': 0.7148159936743647}. Best is trial 1 with value: 0.6.
+[I 2025-10-20 15:51:35,394] Trial 2 finished with value: 1.0 and parameters: {'epsilon': 0.6977288245972708, 'learning_rate': 0.21608949558037638}. Best is trial 2 with value: 1.0.
+[I 2025-10-20 15:51:39,061] Trial 3 finished with value: 1.0 and parameters: {'epsilon': 0.9762744547762418, 'learning_rate': 0.006230255204589863}. Best is trial 2 with value: 1.0.
+[I 2025-10-20 15:51:41,886] Trial 4 finished with value: 0.0 and parameters: {'epsilon': 0.25298236238344396, 'learning_rate': 0.4347915324044458}. Best is trial 2 with value: 1.0.
+[I 2025-10-20 15:51:44,331] Trial 5 finished with value: 0.8 and parameters: {'epsilon': 0.7793829217937525, 'learning_rate': 0.19768507460025309}. Best is trial 2 with value: 1.0.
+[I 2025-10-20 15:51:48,366] Trial 6 finished with value: 0.0 and parameters: {'epsilon': 0.8629932355992223, 'learning_rate': 0.9834006771753128}. Best is trial 2 with value: 1.0.
+[I 2025-10-20 15:51:50,714] Trial 7 finished with value: 0.0 and parameters: {'epsilon': 0.16384224140469872, 'learning_rate': 0.5973339439328592}. Best is trial 2 with value: 1.0.
+[I 2025-10-20 15:51:52,883] Trial 8 finished with value: 0.0 and parameters: {'epsilon': 0.008986097667554982, 'learning_rate': 0.3865712826436294}. Best is trial 2 with value: 1.0.
+[I 2025-10-20 15:51:55,091] Trial 9 finished with value: 0.0 and parameters: {'epsilon': 0.044160057931499574, 'learning_rate': 0.9566529677142359}. Best is trial 2 with value: 1.0.
+Run 5 completed:
+  Best value: 1.0000
+  Best params: {'epsilon': 0.6977288245972708, 'learning_rate': 0.21608949558037638}
+
+=== AGGREGATED RESULTS OVER 5 RUNS ===
+Average best value: 0.9200 ± 0.1600
+Value range: [0.6000, 1.0000]
+Most common best config: {'epsilon': 0.9636627605010293, 'learning_rate': 0.3834415188257777} (appeared in 1/5 runs)
+
+Detailed results:
+  Run 1: 1.0000 (lr=0.3834, eps=0.9637)
+  Run 2: 0.6000 (lr=0.5388, eps=0.3968)
+  Run 3: 1.0000 (lr=0.0259, eps=0.4360)
+  Run 4: 1.0000 (lr=0.2785, eps=0.6491)
+  Run 5: 1.0000 (lr=0.2161, eps=0.6977)
+
+___________________________________
+
+=== Starting Run 1/5 ===
+/Users/janrichtr/Desktop/Thesis/Thesis/bo.py:100: ExperimentalWarning: GPSampler is experimental (supported from v3.6.0). The interface can change in the future.
+  study = optuna.create_study(direction="maximize", pruner=pruner, sampler=optuna.samplers.GPSampler(seed=run_seed))
+[I 2025-10-20 15:34:13,576] A new study created in memory with name: no-name-819b7820-68d7-4d50-a8f5-a41907fc9b0e
+[I 2025-10-20 15:34:20,928] Trial 0 finished with value: 0.778 and parameters: {'epsilon': 0.5488135039273248, 'learning_rate': 0.7151893663724195}. Best is trial 0 with value: 0.778.
+[I 2025-10-20 15:34:28,815] Trial 1 finished with value: 0.784 and parameters: {'epsilon': 0.6027633760716439, 'learning_rate': 0.5448831829968969}. Best is trial 1 with value: 0.784.
+[I 2025-10-20 15:34:35,685] Trial 2 finished with value: 0.779 and parameters: {'epsilon': 0.4236547993389047, 'learning_rate': 0.6458941130666561}. Best is trial 1 with value: 0.784.
+[I 2025-10-20 15:34:41,928] Trial 3 finished with value: 0.798 and parameters: {'epsilon': 0.4375872112626925, 'learning_rate': 0.8917730007820798}. Best is trial 3 with value: 0.798.
+[I 2025-10-20 15:34:48,552] Trial 4 finished with value: 0.79 and parameters: {'epsilon': 0.9636627605010293, 'learning_rate': 0.3834415188257777}. Best is trial 3 with value: 0.798.
+[I 2025-10-20 15:34:55,241] Trial 5 finished with value: 0.776 and parameters: {'epsilon': 0.7917250380826646, 'learning_rate': 0.5288949197529045}. Best is trial 3 with value: 0.798.
+[I 2025-10-20 15:35:01,620] Trial 6 finished with value: 0.785 and parameters: {'epsilon': 0.5680445610939323, 'learning_rate': 0.925596638292661}. Best is trial 3 with value: 0.798.
+[I 2025-10-20 15:35:07,716] Trial 7 finished with value: 0.772 and parameters: {'epsilon': 0.07103605819788694, 'learning_rate': 0.08712929970154071}. Best is trial 3 with value: 0.798.
+[I 2025-10-20 15:35:13,825] Trial 8 finished with value: 0.7809999999999999 and parameters: {'epsilon': 0.02021839744032572, 'learning_rate': 0.832619845547938}. Best is trial 3 with value: 0.798.
+[I 2025-10-20 15:35:20,888] Trial 9 finished with value: 0.7759999999999999 and parameters: {'epsilon': 0.7781567509498505, 'learning_rate': 0.8700121482468192}. Best is trial 3 with value: 0.798.
+Run 1 completed:
+  Best value: 0.7980
+  Best params: {'epsilon': 0.4375872112626925, 'learning_rate': 0.8917730007820798}
+
+=== Starting Run 2/5 ===
+/Users/janrichtr/Desktop/Thesis/Thesis/bo.py:100: ExperimentalWarning: GPSampler is experimental (supported from v3.6.0). The interface can change in the future.
+  study = optuna.create_study(direction="maximize", pruner=pruner, sampler=optuna.samplers.GPSampler(seed=run_seed))
+[I 2025-10-20 15:35:20,889] A new study created in memory with name: no-name-b839a5b2-6a5f-4ef1-b436-218e5cc8c657
+[I 2025-10-20 15:35:27,555] Trial 0 finished with value: 0.7699999999999999 and parameters: {'epsilon': 0.417022004702574, 'learning_rate': 0.7203244934421581}. Best is trial 0 with value: 0.7699999999999999.
+[I 2025-10-20 15:35:33,808] Trial 1 finished with value: 0.772 and parameters: {'epsilon': 0.00011437481734488664, 'learning_rate': 0.30233257263183977}. Best is trial 1 with value: 0.772.
+[I 2025-10-20 15:35:40,012] Trial 2 finished with value: 0.764 and parameters: {'epsilon': 0.14675589081711304, 'learning_rate': 0.0923385947687978}. Best is trial 1 with value: 0.772.
+[I 2025-10-20 15:35:46,309] Trial 3 finished with value: 0.777 and parameters: {'epsilon': 0.1862602113776709, 'learning_rate': 0.34556072704304774}. Best is trial 3 with value: 0.777.
+[I 2025-10-20 15:35:52,639] Trial 4 finished with value: 0.768 and parameters: {'epsilon': 0.39676747423066994, 'learning_rate': 0.538816734003357}. Best is trial 3 with value: 0.777.
+[I 2025-10-20 15:35:59,127] Trial 5 finished with value: 0.772 and parameters: {'epsilon': 0.4191945144032948, 'learning_rate': 0.6852195003967595}. Best is trial 3 with value: 0.777.
+[I 2025-10-20 15:36:06,454] Trial 6 finished with value: 0.766 and parameters: {'epsilon': 0.20445224973151743, 'learning_rate': 0.8781174363909454}. Best is trial 3 with value: 0.777.
+[I 2025-10-20 15:36:12,392] Trial 7 finished with value: 0.77 and parameters: {'epsilon': 0.027387593197926163, 'learning_rate': 0.6704675101784022}. Best is trial 3 with value: 0.777.
+[I 2025-10-20 15:36:18,699] Trial 8 finished with value: 0.788 and parameters: {'epsilon': 0.41730480236712697, 'learning_rate': 0.5586898284457517}. Best is trial 8 with value: 0.788.
+[I 2025-10-20 15:36:24,783] Trial 9 finished with value: 0.773 and parameters: {'epsilon': 0.14038693859523377, 'learning_rate': 0.1981014890848788}. Best is trial 8 with value: 0.788.
+Run 2 completed:
+  Best value: 0.7880
+  Best params: {'epsilon': 0.41730480236712697, 'learning_rate': 0.5586898284457517}
+
+=== Starting Run 3/5 ===
+[I 2025-10-20 15:36:24,784] A new study created in memory with name: no-name-9f0a8b3d-a7ab-4cd2-9792-faf4880c6e75
+[I 2025-10-20 15:36:31,058] Trial 0 finished with value: 0.783 and parameters: {'epsilon': 0.43599490214200376, 'learning_rate': 0.025926231827891333}. Best is trial 0 with value: 0.783.
+[I 2025-10-20 15:36:37,957] Trial 1 finished with value: 0.772 and parameters: {'epsilon': 0.5496624778787091, 'learning_rate': 0.4353223926182769}. Best is trial 0 with value: 0.783.
+[I 2025-10-20 15:36:44,959] Trial 2 finished with value: 0.7779999999999999 and parameters: {'epsilon': 0.42036780208748903, 'learning_rate': 0.3303348210038741}. Best is trial 0 with value: 0.783.
+[I 2025-10-20 15:36:51,293] Trial 3 finished with value: 0.783 and parameters: {'epsilon': 0.2046486340378425, 'learning_rate': 0.6192709663506637}. Best is trial 0 with value: 0.783.
+[I 2025-10-20 15:36:57,484] Trial 4 finished with value: 0.7819999999999999 and parameters: {'epsilon': 0.29965467367452314, 'learning_rate': 0.26682727510286663}. Best is trial 0 with value: 0.783.
+[I 2025-10-20 15:37:03,864] Trial 5 finished with value: 0.79 and parameters: {'epsilon': 0.6211338327692949, 'learning_rate': 0.5291420942770391}. Best is trial 5 with value: 0.79.
+[I 2025-10-20 15:37:10,148] Trial 6 finished with value: 0.7879999999999999 and parameters: {'epsilon': 0.13457994534493356, 'learning_rate': 0.5135781212657464}. Best is trial 5 with value: 0.79.
+[I 2025-10-20 15:37:16,363] Trial 7 finished with value: 0.785 and parameters: {'epsilon': 0.18443986564691528, 'learning_rate': 0.7853351478166735}. Best is trial 5 with value: 0.79.
+[I 2025-10-20 15:37:23,891] Trial 8 finished with value: 0.778 and parameters: {'epsilon': 0.8539752926394888, 'learning_rate': 0.4942368373819278}. Best is trial 5 with value: 0.79.
+[I 2025-10-20 15:37:30,151] Trial 9 finished with value: 0.79 and parameters: {'epsilon': 0.846561485357468, 'learning_rate': 0.079645477009061}. Best is trial 5 with value: 0.79.
+Run 3 completed:
+  Best value: 0.7900
+  Best params: {'epsilon': 0.6211338327692949, 'learning_rate': 0.5291420942770391}
+
+=== Starting Run 4/5 ===
+[I 2025-10-20 15:37:30,152] A new study created in memory with name: no-name-895c1337-472d-46a4-a573-4ab62bd114bc
+[I 2025-10-20 15:37:36,657] Trial 0 finished with value: 0.799 and parameters: {'epsilon': 0.5507979025745755, 'learning_rate': 0.7081478226181048}. Best is trial 0 with value: 0.799.
+[I 2025-10-20 15:37:43,560] Trial 1 finished with value: 0.777 and parameters: {'epsilon': 0.2909047389129443, 'learning_rate': 0.510827605197663}. Best is trial 0 with value: 0.799.
+[I 2025-10-20 15:37:50,402] Trial 2 finished with value: 0.7779999999999999 and parameters: {'epsilon': 0.8929469543476547, 'learning_rate': 0.8962930889334381}. Best is trial 0 with value: 0.799.
+[I 2025-10-20 15:37:56,974] Trial 3 finished with value: 0.785 and parameters: {'epsilon': 0.12558531046383625, 'learning_rate': 0.20724287813818676}. Best is trial 0 with value: 0.799.
+[I 2025-10-20 15:38:02,828] Trial 4 finished with value: 0.768 and parameters: {'epsilon': 0.05146720330082988, 'learning_rate': 0.44080984365063647}. Best is trial 0 with value: 0.799.
+[I 2025-10-20 15:38:08,927] Trial 5 finished with value: 0.784 and parameters: {'epsilon': 0.029876210878566956, 'learning_rate': 0.4568332243947111}. Best is trial 0 with value: 0.799.
+[I 2025-10-20 15:38:15,709] Trial 6 finished with value: 0.776 and parameters: {'epsilon': 0.6491440476147607, 'learning_rate': 0.2784872826479753}. Best is trial 0 with value: 0.799.
+[I 2025-10-20 15:38:22,385] Trial 7 finished with value: 0.776 and parameters: {'epsilon': 0.6762549019801313, 'learning_rate': 0.5908628174163508}. Best is trial 0 with value: 0.799.
+[I 2025-10-20 15:38:28,391] Trial 8 finished with value: 0.78 and parameters: {'epsilon': 0.023981882377165364, 'learning_rate': 0.558854087990882}. Best is trial 0 with value: 0.799.
+[I 2025-10-20 15:38:34,573] Trial 9 finished with value: 0.7819999999999998 and parameters: {'epsilon': 0.2592524469074654, 'learning_rate': 0.41510119701006964}. Best is trial 0 with value: 0.799.
+Run 4 completed:
+  Best value: 0.7990
+  Best params: {'epsilon': 0.5507979025745755, 'learning_rate': 0.7081478226181048}
+
+=== Starting Run 5/5 ===
+[I 2025-10-20 15:38:34,574] A new study created in memory with name: no-name-1c3ba122-981b-4de5-b429-b67a13d2c21d
+[I 2025-10-20 15:38:41,700] Trial 0 finished with value: 0.7889999999999999 and parameters: {'epsilon': 0.9670298390136767, 'learning_rate': 0.5472322491757223}. Best is trial 0 with value: 0.7889999999999999.
+[I 2025-10-20 15:38:48,081] Trial 1 finished with value: 0.792 and parameters: {'epsilon': 0.9726843599648843, 'learning_rate': 0.7148159936743647}. Best is trial 1 with value: 0.792.
+[I 2025-10-20 15:38:54,480] Trial 2 finished with value: 0.775 and parameters: {'epsilon': 0.6977288245972708, 'learning_rate': 0.21608949558037638}. Best is trial 1 with value: 0.792.
+[I 2025-10-20 15:39:01,226] Trial 3 finished with value: 0.7729999999999999 and parameters: {'epsilon': 0.9762744547762418, 'learning_rate': 0.006230255204589863}. Best is trial 1 with value: 0.792.
+[I 2025-10-20 15:39:07,361] Trial 4 finished with value: 0.782 and parameters: {'epsilon': 0.25298236238344396, 'learning_rate': 0.4347915324044458}. Best is trial 1 with value: 0.792.
+[I 2025-10-20 15:42:28,158] Trial 5 finished with value: 0.788 and parameters: {'epsilon': 0.7793829217937525, 'learning_rate': 0.19768507460025309}. Best is trial 1 with value: 0.792.
+[I 2025-10-20 15:42:35,266] Trial 6 finished with value: 0.7790000000000001 and parameters: {'epsilon': 0.8629932355992223, 'learning_rate': 0.9834006771753128}. Best is trial 1 with value: 0.792.
+[I 2025-10-20 15:42:41,489] Trial 7 finished with value: 0.776 and parameters: {'epsilon': 0.16384224140469872, 'learning_rate': 0.5973339439328592}. Best is trial 1 with value: 0.792.
+[I 2025-10-20 15:42:47,735] Trial 8 finished with value: 0.773 and parameters: {'epsilon': 0.008986097667554982, 'learning_rate': 0.3865712826436294}. Best is trial 1 with value: 0.792.
+[I 2025-10-20 15:42:54,068] Trial 9 finished with value: 0.7769999999999999 and parameters: {'epsilon': 0.044160057931499574, 'learning_rate': 0.9566529677142359}. Best is trial 1 with value: 0.792.
+Run 5 completed:
+  Best value: 0.7920
+  Best params: {'epsilon': 0.9726843599648843, 'learning_rate': 0.7148159936743647}
+
+=== AGGREGATED RESULTS OVER 5 RUNS ===
+Average best value: 0.7934 ± 0.0044
+Value range: [0.7880, 0.7990]
+Most common best config: {'epsilon': 0.4375872112626925, 'learning_rate': 0.8917730007820798} (appeared in 1/5 runs)
+
+Detailed results:
+  Run 1: 0.7980 (lr=0.8918, eps=0.4376)
+  Run 2: 0.7880 (lr=0.5587, eps=0.4173)
+  Run 3: 0.7900 (lr=0.5291, eps=0.6211)
+  Run 4: 0.7990 (lr=0.7081, eps=0.5508)
+  Run 5: 0.7920 (lr=0.7148, eps=0.9727)
