@@ -5,6 +5,7 @@ import gymnasium as gym
 import icu_sepsis
 import simplemaze
 import complexmaze
+import random
 
 SEEDS = [0, 1, 2, 3, 4]
 
@@ -17,7 +18,11 @@ def objective(trial):
 
     for seed in SEEDS:
         np.random.seed(seed)
+        random.seed(seed)
         env = gym.make('SimpleMaze-v0') # Sepsis/ICU-Sepsis-v2, ComplexMaze-v0
+        _, _ = env.reset(seed=seed)
+        env.action_space.seed(seed)
+        env.observation_space.seed(seed)
 
         agent = TabularRL(env, learning_rate, epsilon, discount_factor)
 
