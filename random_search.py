@@ -6,6 +6,7 @@ from optuna.samplers import RandomSampler
 import icu_sepsis
 import complexmaze
 import simplemaze
+import random
 
 SEEDS = [0, 1, 2, 3, 4]
 
@@ -18,8 +19,11 @@ def objective(trial):
 
     for seed in SEEDS:
         np.random.seed(seed)
+        random.seed(seed)
         env = gym.make('ComplexMaze-v0') # ComplexMaze-v0, SimpleMaze-v0, Sepsis/ICU-Sepsis-v2
-
+        _, _ = env.reset(seed=seed)
+        env.action_space.seed(seed)
+        env.observation_space.seed(seed)
         agent = TabularRL(env, learning_rate, epsilon, discount_factor)
 
         episode_rewards = []
