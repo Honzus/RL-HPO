@@ -15,6 +15,7 @@ import complexmaze
 import simplemaze
 from TabularAgents import TabularRL
 import utils
+import random
 
 SEEDS = [0, 1, 2, 3, 4]
 
@@ -31,7 +32,11 @@ def eval(env_name, config):
 
     for seed in SEEDS:
         np.random.seed(seed)
+        random.seed(seed)
         env = gym.make(env_name) # NChain-v0, KellyCoinflip-v0, Sepsis/ICU-Sepsis-v2
+        _, _ = env.reset(seed=seed)
+        env.action_space.seed(seed)
+        env.observation_space.seed(seed)
 
         agent = TabularRL(env, learning_rate, epsilon, discount_factor)
 
