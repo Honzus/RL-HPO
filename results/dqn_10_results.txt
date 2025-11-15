@@ -1,0 +1,1096 @@
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.702
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7020000000000004
+  Trial 2/10
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7020000000000004
+  Trial 3/10
+    Selected action: 3
+    Config: [0.01 0.99 0.3 ]
+    Reward: 1.682
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7020000000000004
+  Trial 4/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 1.760
+    *** NEW BEST! ***
+    Best config so far: [0.02 0.99 0.2 ]
+    Best performance so far: 1.7605
+  Trial 5/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.717
+    Best config so far: [0.02 0.99 0.2 ]
+    Best performance so far: 1.7605
+  Trial 6/10
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 1.363
+    Best config so far: [0.02 0.99 0.2 ]
+    Best performance so far: 1.7605
+  Trial 7/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.717
+    Best config so far: [0.02 0.99 0.2 ]
+    Best performance so far: 1.7605
+    Meta-environment terminated early, but continuing HPO...
+  Trial 8/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.717
+    Best config so far: [0.02 0.99 0.2 ]
+    Best performance so far: 1.7605
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.717
+    Best config so far: [0.02 0.99 0.2 ]
+    Best performance so far: 1.7605
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.717
+    Best config so far: [0.02 0.99 0.2 ]
+    Best performance so far: 1.7605
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.02 0.99 0.2 ]
+Best performance: 1.760
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 15
+    Config: [0.05 0.99 0.1 ]
+    Reward: 0.340
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.1 ]
+    Best performance so far: 0.3395
+  Trial 2/10
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.05 0.99 0.1 ]
+    Best performance so far: 0.3395
+  Trial 3/10
+    Selected action: 4
+    Config: [0.01 0.99 0.4 ]
+    Reward: 1.696
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.6965
+  Trial 4/10
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 1.531
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.6965
+  Trial 5/10
+    Selected action: 32
+    Config: [0.3  0.99 0.4 ]
+    Reward: 1.288
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.6965
+  Trial 6/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.558
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.6965
+  Trial 7/10
+    Selected action: 5
+    Config: [0.01 0.99 0.5 ]
+    Reward: 1.676
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.6965
+  Trial 8/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.558
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.6965
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.558
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.6965
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Selected action: 16
+    Config: [0.05 0.99 0.2 ]
+    Reward: 1.549
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.6965
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.01 0.99 0.4 ]
+Best performance: 1.696
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 36
+    Config: [0.5  0.99 0.1 ]
+    Reward: 0.181
+    *** NEW BEST! ***
+    Best config so far: [0.5  0.99 0.1 ]
+    Best performance so far: 0.181
+  Trial 2/10
+    Selected action: 0
+    Config: [0.01 0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.5  0.99 0.1 ]
+    Best performance so far: 0.181
+  Trial 3/10
+    Selected action: 25
+    Config: [0.1  0.99 0.4 ]
+    Reward: 1.532
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 1.5325
+  Trial 4/10
+    Selected action: 1
+    Config: [0.01 0.99 0.1 ]
+    Reward: 0.368
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 1.5325
+  Trial 5/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.697
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.3 ]
+    Best performance so far: 1.6974999999999998
+  Trial 6/10
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.712
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+  Trial 7/10
+    Selected action: 32
+    Config: [0.3  0.99 0.4 ]
+    Reward: 0.370
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+  Trial 8/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.697
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 1.686
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+  Trial 10/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.697
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.6 ]
+Best performance: 1.712
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.637
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.637
+  Trial 2/10
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.637
+  Trial 3/10
+    Selected action: 6
+    Config: [0.01 0.99 0.6 ]
+    Reward: 1.710
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.6 ]
+    Best performance so far: 1.7095000000000002
+  Trial 4/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.587
+    Best config so far: [0.01 0.99 0.6 ]
+    Best performance so far: 1.7095000000000002
+  Trial 5/10
+    Selected action: 33
+    Config: [0.3  0.99 0.5 ]
+    Reward: 1.340
+    Best config so far: [0.01 0.99 0.6 ]
+    Best performance so far: 1.7095000000000002
+  Trial 6/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.587
+    Best config so far: [0.01 0.99 0.6 ]
+    Best performance so far: 1.7095000000000002
+    Meta-environment terminated early, but continuing HPO...
+  Trial 7/10
+    Selected action: 3
+    Config: [0.01 0.99 0.3 ]
+    Reward: 1.728
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+  Trial 8/10
+    Selected action: 23
+    Config: [0.1  0.99 0.2 ]
+    Reward: 1.062
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+  Trial 9/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.587
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.587
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.01 0.99 0.3 ]
+Best performance: 1.728
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 34
+    Config: [0.3  0.99 0.6 ]
+    Reward: 1.214
+    *** NEW BEST! ***
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 1.2135
+  Trial 2/10
+    Selected action: 23
+    Config: [0.1  0.99 0.2 ]
+    Reward: 1.705
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.2 ]
+    Best performance so far: 1.705
+  Trial 3/10
+    Selected action: 40
+    Config: [0.5  0.99 0.5 ]
+    Reward: 0.869
+    Best config so far: [0.1  0.99 0.2 ]
+    Best performance so far: 1.705
+  Trial 4/10
+    Selected action: 39
+    Config: [0.5  0.99 0.4 ]
+    Reward: 1.216
+    Best config so far: [0.1  0.99 0.2 ]
+    Best performance so far: 1.705
+  Trial 5/10
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.686
+    Best config so far: [0.1  0.99 0.2 ]
+    Best performance so far: 1.705
+  Trial 6/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.707
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.3 ]
+    Best performance so far: 1.7065000000000001
+  Trial 7/10
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.1  0.99 0.3 ]
+    Best performance so far: 1.7065000000000001
+  Trial 8/10
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 1.710
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7095000000000002
+  Trial 9/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.707
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7095000000000002
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.707
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7095000000000002
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.5 ]
+Best performance: 1.710
+Total trials completed: 10
+
+________________________________________________________
+
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 38
+    Config: [0.5  0.99 0.3 ]
+    Reward: 0.000
+    *** NEW BEST! ***
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.0
+  Trial 2/10
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.0
+  Trial 3/10
+    Selected action: 3
+    Config: [0.01 0.99 0.3 ]
+    Reward: 0.600
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 0.6
+  Trial 4/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.200
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 0.6
+  Trial 5/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.600
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 0.6
+  Trial 6/10
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 1.000
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.0
+  Trial 7/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.200
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 8/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.200
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.600
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.200
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.0
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.5 ]
+Best performance: 1.000
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 15
+    Config: [0.05 0.99 0.1 ]
+    Reward: 0.000
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.1 ]
+    Best performance so far: 0.0
+  Trial 2/10
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.05 0.99 0.1 ]
+    Best performance so far: 0.0
+  Trial 3/10
+    Selected action: 4
+    Config: [0.01 0.99 0.4 ]
+    Reward: 1.000
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 4/10
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 1.000
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 5/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.000
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 6/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.000
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 7/10
+    Selected action: 5
+    Config: [0.01 0.99 0.5 ]
+    Reward: 1.000
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 8/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.000
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.000
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 1.000
+    Best config so far: [0.01 0.99 0.4 ]
+    Best performance so far: 1.0
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.01 0.99 0.4 ]
+Best performance: 1.000
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 36
+    Config: [0.5  0.99 0.1 ]
+    Reward: 0.000
+    *** NEW BEST! ***
+    Best config so far: [0.5  0.99 0.1 ]
+    Best performance so far: 0.0
+  Trial 2/10
+    Selected action: 0
+    Config: [0.01 0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.5  0.99 0.1 ]
+    Best performance so far: 0.0
+  Trial 3/10
+    Selected action: 25
+    Config: [0.1  0.99 0.4 ]
+    Reward: 1.000
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 4/10
+    Selected action: 1
+    Config: [0.01 0.99 0.1 ]
+    Reward: 0.000
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 5/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.800
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 6/10
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 7/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.200
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 8/10
+    Selected action: 32
+    Config: [0.3  0.99 0.4 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 9/10
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 10/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.200
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 1.0
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.1  0.99 0.4 ]
+Best performance: 1.000
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.000
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 2/10
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 3/10
+    Selected action: 26
+    Config: [0.1  0.99 0.5 ]
+    Reward: 1.000
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 4/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.400
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 5/10
+    Selected action: 33
+    Config: [0.3  0.99 0.5 ]
+    Reward: 1.000
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 6/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.400
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 7/10
+    Selected action: 3
+    Config: [0.01 0.99 0.3 ]
+    Reward: 0.400
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 8/10
+    Selected action: 23
+    Config: [0.1  0.99 0.2 ]
+    Reward: 0.400
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 9/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.400
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.400
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.6 ]
+Best performance: 1.000
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 34
+    Config: [0.3  0.99 0.6 ]
+    Reward: 0.800
+    *** NEW BEST! ***
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 0.8
+  Trial 2/10
+    Selected action: 23
+    Config: [0.1  0.99 0.2 ]
+    Reward: 0.000
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 0.8
+  Trial 3/10
+    Selected action: 40
+    Config: [0.5  0.99 0.5 ]
+    Reward: 0.800
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 0.8
+  Trial 4/10
+    Selected action: 39
+    Config: [0.5  0.99 0.4 ]
+    Reward: 0.800
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 0.8
+  Trial 5/10
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.000
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 6/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.800
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 7/10
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 8/10
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 1.000
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 9/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.800
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.000
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.6 ]
+Best performance: 1.000
+Total trials completed: 10
+
+________________________________________________________
+
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 38
+    Config: [0.5  0.99 0.3 ]
+    Reward: 0.782
+    *** NEW BEST! ***
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.782
+  Trial 2/10
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.774
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.782
+  Trial 3/10
+    Selected action: 3
+    Config: [0.01 0.99 0.3 ]
+    Reward: 0.776
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.782
+  Trial 4/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.782
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.782
+  Trial 5/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.778
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.782
+  Trial 6/10
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 0.787
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 0.787
+  Trial 7/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.778
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 0.787
+    Meta-environment terminated early, but continuing HPO...
+  Trial 8/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.778
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 0.787
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.778
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 0.787
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.782
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 0.787
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.5 ]
+Best performance: 0.787
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 15
+    Config: [0.05 0.99 0.1 ]
+    Reward: 0.769
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.1 ]
+    Best performance so far: 0.7689999999999999
+  Trial 2/10
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.772
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.05]
+    Best performance so far: 0.7719999999999999
+  Trial 3/10
+    Selected action: 4
+    Config: [0.01 0.99 0.4 ]
+    Reward: 0.760
+    Best config so far: [0.1  0.99 0.05]
+    Best performance so far: 0.7719999999999999
+  Trial 4/10
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 0.771
+    Best config so far: [0.1  0.99 0.05]
+    Best performance so far: 0.7719999999999999
+  Trial 5/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.781
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.3 ]
+    Best performance so far: 0.781
+  Trial 6/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.781
+    Best config so far: [0.1  0.99 0.3 ]
+    Best performance so far: 0.781
+    Meta-environment terminated early, but continuing HPO...
+  Trial 7/10
+    Selected action: 5
+    Config: [0.01 0.99 0.5 ]
+    Reward: 0.785
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.5 ]
+    Best performance so far: 0.7849999999999999
+  Trial 8/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.781
+    Best config so far: [0.01 0.99 0.5 ]
+    Best performance so far: 0.7849999999999999
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.781
+    Best config so far: [0.01 0.99 0.5 ]
+    Best performance so far: 0.7849999999999999
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Selected action: 16
+    Config: [0.05 0.99 0.2 ]
+    Reward: 0.771
+    Best config so far: [0.01 0.99 0.5 ]
+    Best performance so far: 0.7849999999999999
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.01 0.99 0.5 ]
+Best performance: 0.785
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 0.767
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.767
+  Trial 2/10
+    Selected action: 0
+    Config: [0.01 0.99 0.05]
+    Reward: 0.772
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.05]
+    Best performance so far: 0.772
+  Trial 3/10
+    Selected action: 25
+    Config: [0.1  0.99 0.4 ]
+    Reward: 0.764
+    Best config so far: [0.01 0.99 0.05]
+    Best performance so far: 0.772
+  Trial 4/10
+    Selected action: 1
+    Config: [0.01 0.99 0.1 ]
+    Reward: 0.784
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.1 ]
+    Best performance so far: 0.784
+  Trial 5/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.776
+    Best config so far: [0.01 0.99 0.1 ]
+    Best performance so far: 0.784
+  Trial 6/10
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 0.767
+    Best config so far: [0.01 0.99 0.1 ]
+    Best performance so far: 0.784
+    Meta-environment terminated early, but continuing HPO...
+  Trial 7/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.776
+    Best config so far: [0.01 0.99 0.1 ]
+    Best performance so far: 0.784
+    Meta-environment terminated early, but continuing HPO...
+  Trial 8/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.776
+    Best config so far: [0.01 0.99 0.1 ]
+    Best performance so far: 0.784
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 0.789
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 0.789
+  Trial 10/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.791
+    *** NEW BEST! ***
+    Best config so far: [0.02 0.99 0.2 ]
+    Best performance so far: 0.791
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.02 0.99 0.2 ]
+Best performance: 0.791
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 0.786
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.7859999999999999
+  Trial 2/10
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.773
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.7859999999999999
+  Trial 3/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.775
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.7859999999999999
+  Trial 4/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.775
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.7859999999999999
+  Trial 5/10
+    Selected action: 33
+    Config: [0.3  0.99 0.5 ]
+    Reward: 0.782
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.7859999999999999
+  Trial 6/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.775
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.7859999999999999
+    Meta-environment terminated early, but continuing HPO...
+  Trial 7/10
+    Selected action: 3
+    Config: [0.01 0.99 0.3 ]
+    Reward: 0.770
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.7859999999999999
+  Trial 8/10
+    Selected action: 23
+    Config: [0.1  0.99 0.2 ]
+    Reward: 0.773
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.7859999999999999
+  Trial 9/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.775
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.7859999999999999
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.775
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.7859999999999999
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.6 ]
+Best performance: 0.786
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Selected action: 34
+    Config: [0.3  0.99 0.6 ]
+    Reward: 0.771
+    *** NEW BEST! ***
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 0.771
+  Trial 2/10
+    Selected action: 23
+    Config: [0.1  0.99 0.2 ]
+    Reward: 0.776
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.2 ]
+    Best performance so far: 0.776
+  Trial 3/10
+    Selected action: 40
+    Config: [0.5  0.99 0.5 ]
+    Reward: 0.770
+    Best config so far: [0.1  0.99 0.2 ]
+    Best performance so far: 0.776
+  Trial 4/10
+    Selected action: 39
+    Config: [0.5  0.99 0.4 ]
+    Reward: 0.774
+    Best config so far: [0.1  0.99 0.2 ]
+    Best performance so far: 0.776
+  Trial 5/10
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 0.792
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.792
+  Trial 6/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.784
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.792
+  Trial 7/10
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.774
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.792
+  Trial 8/10
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 0.774
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.792
+  Trial 9/10
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.784
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.792
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.784
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 0.792
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.6 ]
+Best performance: 0.792
+Total trials completed: 10
