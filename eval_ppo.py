@@ -25,18 +25,18 @@ def prepare_initial_observation(max_seq_len, n_t_dim, meta_dim, meta_features):
     obs[:, -meta_dim:] = meta_features
     return obs
 
-def eval(env_name, config):
+def eval(env_name, config, s):
     learning_rate, discount_factor, epsilon = config
 
     all_final_rewards = []
 
     for seed in SEEDS:
-        np.random.seed(seed)
-        random.seed(seed)
+        np.random.seed(s*100 + seed)
+        random.seed(s*100 + seed)
         env = gym.make(env_name) # NChain-v0, KellyCoinflip-v0, Sepsis/ICU-Sepsis-v2
-        _, _ = env.reset(seed=seed)
-        env.action_space.seed(seed)
-        env.observation_space.seed(seed)
+        _, _ = env.reset(seed=s*100 + seed)
+        env.action_space.seed(s*100 + seed)
+        env.observation_space.seed(s*100 + seed)
 
         agent = TabularRL(env, learning_rate, epsilon, discount_factor)
 
@@ -106,7 +106,7 @@ def eval(env_name, config):
 
 # Main optimization loop
 def optimize_hyperparameters(env_name, training_env, ppo_act_function, max_seq_len, meta_dim, N_t, n_t_dim,
-                             num_actions, max_trials):
+                             num_actions, max_trials, s):
     """Uses the PPO agent to optimize RL agent hyperparameters in a single episode."""
 
     hpo_history = []
@@ -115,8 +115,8 @@ def optimize_hyperparameters(env_name, training_env, ppo_act_function, max_seq_l
     best_action = None
 
     # Entropy-based exploration parameters (similar to DQN LinearSchedule)
-    initial_entropy_coef = 0.8    # Start with high entropy for exploration
-    final_entropy_coef = 0.01     # End with low entropy for exploitation
+    initial_entropy_coef = 0.7    # Start with high entropy for exploration
+    final_entropy_coef = 0.1     # End with low entropy for exploitation
     exploration_fraction = 0.7     # Decay over 70% of trials (like DQN's exploration_fraction)
     schedule_timesteps = int(exploration_fraction * max_trials)  # Linear decay period
 
@@ -180,7 +180,7 @@ def optimize_hyperparameters(env_name, training_env, ppo_act_function, max_seq_l
         print(f"    Config: {config}")
 
         # Evaluate on target environment
-        reward = eval(env_name, config)
+        reward = eval(env_name, config, s)
         
         # Store the result
         hpo_history.append((config, reward))
@@ -278,7 +278,8 @@ def main():
         num_actions=training_env.action_space.n,
         scope="ppo",
         entropy_coef=0.1,
-        reuse=None
+        reuse=None,
+        s = args.seed
     )
 
     # Initialize the model
