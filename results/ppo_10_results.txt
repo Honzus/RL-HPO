@@ -1,0 +1,1395 @@
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploration: Random action 0 (entropy-based)
+    Selected action: 0
+    Config: [0.01 0.99 0.05]
+    Reward: 0.772
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.05]
+    Best performance so far: 0.772
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploitation: PPO action 27
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 0.769
+    Best config so far: [0.01 0.99 0.05]
+    Best performance so far: 0.772
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploration: Random action 40 (entropy-based)
+    Selected action: 40
+    Config: [0.5  0.99 0.5 ]
+    Reward: 0.773
+    *** NEW BEST! ***
+    Best config so far: [0.5  0.99 0.5 ]
+    Best performance so far: 0.773
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploration: Random action 8 (entropy-based)
+    Selected action: 8
+    Config: [0.02 0.99 0.1 ]
+    Reward: 0.771
+    Best config so far: [0.5  0.99 0.5 ]
+    Best performance so far: 0.773
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploitation: PPO action 21
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.774
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.05]
+    Best performance so far: 0.774
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploitation: PPO action 24
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.778
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.3 ]
+    Best performance so far: 0.778
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploration: Random action 37 (entropy-based)
+    Selected action: 37
+    Config: [0.5  0.99 0.2 ]
+    Reward: 0.789
+    *** NEW BEST! ***
+    Best config so far: [0.5  0.99 0.2 ]
+    Best performance so far: 0.789
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 7
+    Selected action: 7
+    Config: [0.02 0.99 0.05]
+    Reward: 0.774
+    Best config so far: [0.5  0.99 0.2 ]
+    Best performance so far: 0.789
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 24
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.778
+    Best config so far: [0.5  0.99 0.2 ]
+    Best performance so far: 0.789
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 9
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.782
+    Best config so far: [0.5  0.99 0.2 ]
+    Best performance so far: 0.789
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.5  0.99 0.2 ]
+Best performance: 0.789
+Total trials completed: 10
+
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploitation: PPO action 22
+    Selected action: 22
+    Config: [0.1  0.99 0.1 ]
+    Reward: 0.768
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.1 ]
+    Best performance so far: 0.768
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploration: Random action 36 (entropy-based)
+    Selected action: 36
+    Config: [0.5  0.99 0.1 ]
+    Reward: 0.792
+    *** NEW BEST! ***
+    Best config so far: [0.5  0.99 0.1 ]
+    Best performance so far: 0.792
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploration: Random action 21 (entropy-based)
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.772
+    Best config so far: [0.5  0.99 0.1 ]
+    Best performance so far: 0.792
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploration: Random action 38 (entropy-based)
+    Selected action: 38
+    Config: [0.5  0.99 0.3 ]
+    Reward: 0.796
+    *** NEW BEST! ***
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.796
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploration: Random action 33 (entropy-based)
+    Selected action: 33
+    Config: [0.3  0.99 0.5 ]
+    Reward: 0.790
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.796
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploitation: PPO action 24
+    Selected action: 24
+    Config: [0.1  0.99 0.3 ]
+    Reward: 0.781
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.796
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploitation: PPO action 25
+    Selected action: 25
+    Config: [0.1  0.99 0.4 ]
+    Reward: 0.779
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.796
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 21
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.772
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.796
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploration: Random action 38 (entropy-based)
+    Selected action: 38
+    Config: [0.5  0.99 0.3 ]
+    Reward: 0.796
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.796
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 9
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.780
+    Best config so far: [0.5  0.99 0.3 ]
+    Best performance so far: 0.796
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.5  0.99 0.3 ]
+Best performance: 0.796
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploration: Random action 8 (entropy-based)
+    Selected action: 8
+    Config: [0.02 0.99 0.1 ]
+    Reward: 0.780
+    *** NEW BEST! ***
+    Best config so far: [0.02 0.99 0.1 ]
+    Best performance so far: 0.78
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploration: Random action 41 (entropy-based)
+    Selected action: 41
+    Config: [0.5  0.99 0.6 ]
+    Reward: 0.777
+    Best config so far: [0.02 0.99 0.1 ]
+    Best performance so far: 0.78
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 0.767
+    Best config so far: [0.02 0.99 0.1 ]
+    Best performance so far: 0.78
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploitation: PPO action 19
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 0.808
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 0.808
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploitation: PPO action 21
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.771
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 0.808
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploitation: PPO action 21
+    Selected action: 21
+    Config: [0.1  0.99 0.05]
+    Reward: 0.771
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 0.808
+    Meta-environment terminated early, but continuing HPO...
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploitation: PPO action 9
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.791
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 0.808
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 25
+    Selected action: 25
+    Config: [0.1  0.99 0.4 ]
+    Reward: 0.764
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 0.808
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploration: Random action 23 (entropy-based)
+    Selected action: 23
+    Config: [0.1  0.99 0.2 ]
+    Reward: 0.784
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 0.808
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploration: Random action 37 (entropy-based)
+    Selected action: 37
+    Config: [0.5  0.99 0.2 ]
+    Reward: 0.782
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 0.808
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.5 ]
+Best performance: 0.808
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploration: Random action 3 (entropy-based)
+    Selected action: 3
+    Config: [0.01 0.99 0.3 ]
+    Reward: 0.770
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 0.7699999999999999
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploitation: PPO action 27
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 0.777
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 0.777
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploration: Random action 7 (entropy-based)
+    Selected action: 7
+    Config: [0.02 0.99 0.05]
+    Reward: 0.773
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 0.777
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploration: Random action 37 (entropy-based)
+    Selected action: 37
+    Config: [0.5  0.99 0.2 ]
+    Reward: 0.772
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 0.777
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploration: Random action 15 (entropy-based)
+    Selected action: 15
+    Config: [0.05 0.99 0.1 ]
+    Reward: 0.773
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 0.777
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploitation: PPO action 25
+    Selected action: 25
+    Config: [0.1  0.99 0.4 ]
+    Reward: 0.780
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 0.78
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploitation: PPO action 30
+    Selected action: 30
+    Config: [0.3  0.99 0.2 ]
+    Reward: 0.777
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 0.78
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 17
+    Selected action: 17
+    Config: [0.05 0.99 0.3 ]
+    Reward: 0.777
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 0.78
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 25
+    Selected action: 25
+    Config: [0.1  0.99 0.4 ]
+    Reward: 0.780
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 0.78
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 16
+    Selected action: 16
+    Config: [0.05 0.99 0.2 ]
+    Reward: 0.776
+    Best config so far: [0.1  0.99 0.4 ]
+    Best performance so far: 0.78
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.1  0.99 0.4 ]
+Best performance: 0.780
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploitation: PPO action 22
+    Selected action: 22
+    Config: [0.1  0.99 0.1 ]
+    Reward: 0.784
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.1 ]
+    Best performance so far: 0.7839999999999999
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploitation: PPO action 27
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 0.779
+    Best config so far: [0.1  0.99 0.1 ]
+    Best performance so far: 0.7839999999999999
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploration: Random action 19 (entropy-based)
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 0.774
+    Best config so far: [0.1  0.99 0.1 ]
+    Best performance so far: 0.7839999999999999
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploration: Random action 6 (entropy-based)
+    Selected action: 6
+    Config: [0.01 0.99 0.6 ]
+    Reward: 0.787
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.6 ]
+    Best performance so far: 0.7870000000000001
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploration: Random action 32 (entropy-based)
+    Selected action: 32
+    Config: [0.3  0.99 0.4 ]
+    Reward: 0.786
+    Best config so far: [0.01 0.99 0.6 ]
+    Best performance so far: 0.7870000000000001
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploration: Random action 26 (entropy-based)
+    Selected action: 26
+    Config: [0.1  0.99 0.5 ]
+    Reward: 0.786
+    Best config so far: [0.01 0.99 0.6 ]
+    Best performance so far: 0.7870000000000001
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploration: Random action 17 (entropy-based)
+    Selected action: 17
+    Config: [0.05 0.99 0.3 ]
+    Reward: 0.786
+    Best config so far: [0.01 0.99 0.6 ]
+    Best performance so far: 0.7870000000000001
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 35
+    Selected action: 35
+    Config: [0.5  0.99 0.05]
+    Reward: 0.797
+    *** NEW BEST! ***
+    Best config so far: [0.5  0.99 0.05]
+    Best performance so far: 0.7969999999999999
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 15
+    Selected action: 15
+    Config: [0.05 0.99 0.1 ]
+    Reward: 0.778
+    Best config so far: [0.5  0.99 0.05]
+    Best performance so far: 0.7969999999999999
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 35
+    Selected action: 35
+    Config: [0.5  0.99 0.05]
+    Reward: 0.797
+    Best config so far: [0.5  0.99 0.05]
+    Best performance so far: 0.7969999999999999
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.5  0.99 0.05]
+Best performance: 0.797
+Total trials completed: 10
+
+_________________________________________________Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploration: Random action 0 (entropy-based)
+    Selected action: 0
+    Config: [0.01 0.99 0.05]
+    Reward: 0.000
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.05]
+    Best performance so far: 0.0
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploitation: PPO action 27
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 1.000
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploration: Random action 0 (entropy-based)
+    Selected action: 0
+    Config: [0.01 0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploitation: PPO action 19
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploration: Random action 5 (entropy-based)
+    Selected action: 5
+    Config: [0.01 0.99 0.5 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploitation: PPO action 16
+    Selected action: 16
+    Config: [0.05 0.99 0.2 ]
+    Reward: 0.200
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 16
+    Selected action: 16
+    Config: [0.05 0.99 0.2 ]
+    Reward: 0.200
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 18
+    Selected action: 18
+    Config: [0.05 0.99 0.4 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.1  0.99 0.6 ]
+Best performance: 1.000
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploitation: PPO action 22
+    Selected action: 22
+    Config: [0.1  0.99 0.1 ]
+    Reward: 0.000
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.1 ]
+    Best performance so far: 0.0
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploration: Random action 32 (entropy-based)
+    Selected action: 32
+    Config: [0.3  0.99 0.4 ]
+    Reward: 1.000
+    *** NEW BEST! ***
+    Best config so far: [0.3  0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploration: Random action 10 (entropy-based)
+    Selected action: 10
+    Config: [0.02 0.99 0.3 ]
+    Reward: 1.000
+    Best config so far: [0.3  0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploration: Random action 28 (entropy-based)
+    Selected action: 28
+    Config: [0.3  0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.3  0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploration: Random action 32 (entropy-based)
+    Selected action: 32
+    Config: [0.3  0.99 0.4 ]
+    Reward: 1.000
+    Best config so far: [0.3  0.99 0.4 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploration: Random action 10 (entropy-based)
+    Selected action: 10
+    Config: [0.02 0.99 0.3 ]
+    Reward: 1.000
+    Best config so far: [0.3  0.99 0.4 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploration: Random action 28 (entropy-based)
+    Selected action: 28
+    Config: [0.3  0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.3  0.99 0.4 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.000
+    Best config so far: [0.3  0.99 0.4 ]
+    Best performance so far: 1.0
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.000
+    Best config so far: [0.3  0.99 0.4 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 9
+    Selected action: 9
+    Config: [0.02 0.99 0.2 ]
+    Reward: 0.000
+    Best config so far: [0.3  0.99 0.4 ]
+    Best performance so far: 1.0
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.3  0.99 0.4 ]
+Best performance: 1.000
+Total trials completed: 10Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploration: Random action 8 (entropy-based)
+    Selected action: 8
+    Config: [0.02 0.99 0.1 ]
+    Reward: 0.000
+    *** NEW BEST! ***
+    Best config so far: [0.02 0.99 0.1 ]
+    Best performance so far: 0.0
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploration: Random action 34 (entropy-based)
+    Selected action: 34
+    Config: [0.3  0.99 0.6 ]
+    Reward: 1.000
+    *** NEW BEST! ***
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploration: Random action 7 (entropy-based)
+    Selected action: 7
+    Config: [0.02 0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploration: Random action 34 (entropy-based)
+    Selected action: 34
+    Config: [0.3  0.99 0.6 ]
+    Reward: 1.000
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploration: Random action 7 (entropy-based)
+    Selected action: 7
+    Config: [0.02 0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploitation: PPO action 41
+    Selected action: 41
+    Config: [0.5  0.99 0.6 ]
+    Reward: 1.000
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploration: Random action 19 (entropy-based)
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 1.000
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.000
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 18
+    Selected action: 18
+    Config: [0.05 0.99 0.4 ]
+    Reward: 1.000
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 29
+    Selected action: 29
+    Config: [0.3  0.99 0.1 ]
+    Reward: 0.000
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 1.0
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.3  0.99 0.6 ]
+Best performance: 1.000
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploration: Random action 3 (entropy-based)
+    Selected action: 3
+    Config: [0.01 0.99 0.3 ]
+    Reward: 0.400
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 0.4
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploration: Random action 39 (entropy-based)
+    Selected action: 39
+    Config: [0.5  0.99 0.4 ]
+    Reward: 0.600
+    *** NEW BEST! ***
+    Best config so far: [0.5  0.99 0.4 ]
+    Best performance so far: 0.6
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.000
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploitation: PPO action 7
+    Selected action: 7
+    Config: [0.02 0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploration: Random action 39 (entropy-based)
+    Selected action: 39
+    Config: [0.5  0.99 0.4 ]
+    Reward: 0.600
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploitation: PPO action 25
+    Selected action: 25
+    Config: [0.1  0.99 0.4 ]
+    Reward: 1.000
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploitation: PPO action 17
+    Selected action: 17
+    Config: [0.05 0.99 0.3 ]
+    Reward: 0.400
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 17
+    Selected action: 17
+    Config: [0.05 0.99 0.3 ]
+    Reward: 0.400
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 25
+    Selected action: 25
+    Config: [0.1  0.99 0.4 ]
+    Reward: 1.000
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 16
+    Selected action: 16
+    Config: [0.05 0.99 0.2 ]
+    Reward: 0.400
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.0
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.6 ]
+Best performance: 1.000
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploitation: PPO action 22
+    Selected action: 22
+    Config: [0.1  0.99 0.1 ]
+    Reward: 0.000
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.1 ]
+    Best performance so far: 0.0
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploitation: PPO action 27
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 1.000
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploration: Random action 39 (entropy-based)
+    Selected action: 39
+    Config: [0.5  0.99 0.4 ]
+    Reward: 0.800
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploration: Random action 41 (entropy-based)
+    Selected action: 41
+    Config: [0.5  0.99 0.6 ]
+    Reward: 0.600
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploitation: PPO action 19
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploration: Random action 29 (entropy-based)
+    Selected action: 29
+    Config: [0.3  0.99 0.1 ]
+    Reward: 0.000
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploitation: PPO action 25
+    Selected action: 25
+    Config: [0.1  0.99 0.4 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 18
+    Selected action: 18
+    Config: [0.05 0.99 0.4 ]
+    Reward: 1.000
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.0
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.1  0.99 0.6 ]
+Best performance: 1.000
+Total trials completed: 10
+
+_________________________________________________
+
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploration: Random action 0 (entropy-based)
+    Selected action: 0
+    Config: [0.01 0.99 0.05]
+    Reward: 0.000
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.05]
+    Best performance so far: 0.0
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploitation: PPO action 27
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 1.548
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.548
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.702
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7020000000000004
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploration: Random action 1 (entropy-based)
+    Selected action: 1
+    Config: [0.01 0.99 0.1 ]
+    Reward: 0.539
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7020000000000004
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploration: Random action 17 (entropy-based)
+    Selected action: 17
+    Config: [0.05 0.99 0.3 ]
+    Reward: 1.723
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.3 ]
+    Best performance so far: 1.7225000000000001
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploitation: PPO action 26
+    Selected action: 26
+    Config: [0.1  0.99 0.5 ]
+    Reward: 1.524
+    Best config so far: [0.05 0.99 0.3 ]
+    Best performance so far: 1.7225000000000001
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploitation: PPO action 26
+    Selected action: 26
+    Config: [0.1  0.99 0.5 ]
+    Reward: 1.524
+    Best config so far: [0.05 0.99 0.3 ]
+    Best performance so far: 1.7225000000000001
+    Meta-environment terminated early, but continuing HPO...
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.702
+    Best config so far: [0.05 0.99 0.3 ]
+    Best performance so far: 1.7225000000000001
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.702
+    Best config so far: [0.05 0.99 0.3 ]
+    Best performance so far: 1.7225000000000001
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.702
+    Best config so far: [0.05 0.99 0.3 ]
+    Best performance so far: 1.7225000000000001
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.3 ]
+Best performance: 1.723
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploitation: PPO action 22
+    Selected action: 22
+    Config: [0.1  0.99 0.1 ]
+    Reward: 0.344
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.1 ]
+    Best performance so far: 0.3445
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploitation: PPO action 27
+    Selected action: 27
+    Config: [0.1  0.99 0.6 ]
+    Reward: 1.531
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.531
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploration: Random action 8 (entropy-based)
+    Selected action: 8
+    Config: [0.02 0.99 0.1 ]
+    Reward: 0.167
+    Best config so far: [0.1  0.99 0.6 ]
+    Best performance so far: 1.531
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploitation: PPO action 19
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 1.724
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7235
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploitation: PPO action 19
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 1.724
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7235
+    Meta-environment terminated early, but continuing HPO...
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploitation: PPO action 41
+    Selected action: 41
+    Config: [0.5  0.99 0.6 ]
+    Reward: 1.030
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7235
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploitation: PPO action 33
+    Selected action: 33
+    Config: [0.3  0.99 0.5 ]
+    Reward: 0.878
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7235
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.685
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7235
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.685
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7235
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.685
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7235
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.5 ]
+Best performance: 1.724
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploration: Random action 8 (entropy-based)
+    Selected action: 8
+    Config: [0.02 0.99 0.1 ]
+    Reward: 0.674
+    *** NEW BEST! ***
+    Best config so far: [0.02 0.99 0.1 ]
+    Best performance so far: 0.674
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploration: Random action 34 (entropy-based)
+    Selected action: 34
+    Config: [0.3  0.99 0.6 ]
+    Reward: 1.054
+    *** NEW BEST! ***
+    Best config so far: [0.3  0.99 0.6 ]
+    Best performance so far: 1.0545
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.712
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploitation: PPO action 19
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 1.626
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploitation: PPO action 26
+    Selected action: 26
+    Config: [0.1  0.99 0.5 ]
+    Reward: 1.560
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploration: Random action 1 (entropy-based)
+    Selected action: 1
+    Config: [0.01 0.99 0.1 ]
+    Reward: 0.368
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploitation: PPO action 18
+    Selected action: 18
+    Config: [0.05 0.99 0.4 ]
+    Reward: 1.700
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 25
+    Selected action: 25
+    Config: [0.1  0.99 0.4 ]
+    Reward: 1.532
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploration: Random action 34 (entropy-based)
+    Selected action: 34
+    Config: [0.3  0.99 0.6 ]
+    Reward: 1.054
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.712
+    Best config so far: [0.05 0.99 0.6 ]
+    Best performance so far: 1.7125
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.6 ]
+Best performance: 1.712
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploration: Random action 3 (entropy-based)
+    Selected action: 3
+    Config: [0.01 0.99 0.3 ]
+    Reward: 1.728
+    *** NEW BEST! ***
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploration: Random action 16 (entropy-based)
+    Selected action: 16
+    Config: [0.05 0.99 0.2 ]
+    Reward: 1.704
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploitation: PPO action 28
+    Selected action: 28
+    Config: [0.3  0.99 0.05]
+    Reward: 0.000
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploration: Random action 39 (entropy-based)
+    Selected action: 39
+    Config: [0.5  0.99 0.4 ]
+    Reward: 0.684
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploitation: PPO action 8
+    Selected action: 8
+    Config: [0.02 0.99 0.1 ]
+    Reward: 0.373
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploration: Random action 39 (entropy-based)
+    Selected action: 39
+    Config: [0.5  0.99 0.4 ]
+    Reward: 0.684
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+    Meta-environment terminated early, but continuing HPO...
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploitation: PPO action 29
+    Selected action: 29
+    Config: [0.3  0.99 0.1 ]
+    Reward: 0.335
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 17
+    Selected action: 17
+    Config: [0.05 0.99 0.3 ]
+    Reward: 1.706
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 29
+    Selected action: 29
+    Config: [0.3  0.99 0.1 ]
+    Reward: 0.335
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 30
+    Selected action: 30
+    Config: [0.3  0.99 0.2 ]
+    Reward: 0.713
+    Best config so far: [0.01 0.99 0.3 ]
+    Best performance so far: 1.7285
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.01 0.99 0.3 ]
+Best performance: 1.728
+Total trials completed: 10
+Logging to checkpoints
+path
+  Trial 1/10
+    Current entropy coefficient: 0.700
+    Exploitation: PPO action 22
+    Selected action: 22
+    Config: [0.1  0.99 0.1 ]
+    Reward: 0.338
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.1 ]
+    Best performance so far: 0.33849999999999997
+  Trial 2/10
+    Current entropy coefficient: 0.614
+    Exploration: Random action 26 (entropy-based)
+    Selected action: 26
+    Config: [0.1  0.99 0.5 ]
+    Reward: 1.678
+    *** NEW BEST! ***
+    Best config so far: [0.1  0.99 0.5 ]
+    Best performance so far: 1.6780000000000002
+  Trial 3/10
+    Current entropy coefficient: 0.529
+    Exploration: Random action 12 (entropy-based)
+    Selected action: 12
+    Config: [0.02 0.99 0.5 ]
+    Reward: 1.694
+    *** NEW BEST! ***
+    Best config so far: [0.02 0.99 0.5 ]
+    Best performance so far: 1.6935000000000002
+  Trial 4/10
+    Current entropy coefficient: 0.443
+    Exploitation: PPO action 19
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 1.710
+    *** NEW BEST! ***
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7095000000000002
+  Trial 5/10
+    Current entropy coefficient: 0.357
+    Exploitation: PPO action 19
+    Selected action: 19
+    Config: [0.05 0.99 0.5 ]
+    Reward: 1.710
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7095000000000002
+    Meta-environment terminated early, but continuing HPO...
+  Trial 6/10
+    Current entropy coefficient: 0.271
+    Exploitation: PPO action 41
+    Selected action: 41
+    Config: [0.5  0.99 0.6 ]
+    Reward: 1.012
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7095000000000002
+  Trial 7/10
+    Current entropy coefficient: 0.186
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.686
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7095000000000002
+  Trial 8/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.686
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7095000000000002
+    Meta-environment terminated early, but continuing HPO...
+  Trial 9/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.686
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7095000000000002
+    Meta-environment terminated early, but continuing HPO...
+  Trial 10/10
+    Current entropy coefficient: 0.100
+    Exploitation: PPO action 20
+    Selected action: 20
+    Config: [0.05 0.99 0.6 ]
+    Reward: 1.686
+    Best config so far: [0.05 0.99 0.5 ]
+    Best performance so far: 1.7095000000000002
+    HPO completed after 10 trials
+
+=== FINAL RESULTS ===
+Best configuration: [0.05 0.99 0.5 ]
+Best performance: 1.710
+Total trials completed: 10
