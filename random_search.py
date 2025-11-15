@@ -10,7 +10,7 @@ import random
 
 SEEDS = [0, 1, 2, 3, 4]
 
-def objective(trial):
+def objective(trial, s):
     epsilon = trial.suggest_float('epsilon', 0, 1)
     learning_rate = trial.suggest_float('learning_rate', 0, 1)
     discount_factor = 0.99
@@ -18,12 +18,12 @@ def objective(trial):
     all_final_rewards = []
 
     for seed in SEEDS:
-        np.random.seed(seed)
-        random.seed(seed)
+        np.random.seed(s*100 + seed)
+        random.seed(s*100 + seed)
         env = gym.make('ComplexMaze-v0') # ComplexMaze-v0, SimpleMaze-v0, Sepsis/ICU-Sepsis-v2
-        _, _ = env.reset(seed=seed)
-        env.action_space.seed(seed)
-        env.observation_space.seed(seed)
+        _, _ = env.reset(seed=s*100 + seed)
+        env.action_space.seed(s*100 + seed)
+        env.observation_space.seed(s*100 + seed)
         agent = TabularRL(env, learning_rate, epsilon, discount_factor)
 
         episode_rewards = []
@@ -105,7 +105,7 @@ for run in range(num_runs):
     study = optuna.create_study(direction="maximize", pruner=pruner, sampler=RandomSampler(seed=run_seed))
     
     # Optimize
-    study.optimize(objective, n_trials=50)
+    study.optimize(lambda trial: objective(trial, s=run_seed), n_trials=50)
     
     # Store results
     run_results = {
